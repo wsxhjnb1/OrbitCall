@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orbitcall"
+version = "0.1.0"
+description = "Finite argument-order probability scoring and prefix-tree evaluation for tool-calling LLMs"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Yuhao Xie"}]
+requires-python = ">=3.12"
+dependencies = []
+keywords = ["tool-calling", "language-models", "prefix-tree", "inference"]
+
+[project.optional-dependencies]
+# Versions recorded on Spark in metadata/runtime.json. The Torch runtime used
+# the local CUDA build 2.13.0+cu130 on Linux aarch64; provision it separately.
+runtime = ["torch==2.13.0", "transformers==5.15.0", "numpy==2.3.5"]
+cuda = ["triton==3.7.1"]
+test = ["pytest==9.1.1"]
+analysis = ["numpy==2.3.5", "scipy==1.18.0", "matplotlib==3.10.3"]
+assets = ["huggingface-hub>=1.0,<2"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["orbitcall*"]

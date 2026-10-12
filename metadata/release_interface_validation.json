@@ -1,0 +1,24 @@
+{
+  "valid": true,
+  "host": "original DGX Spark GB10",
+  "current_scoring_sha256": "25b35f11d51a1842ad7290d73ad444242f2c89f9e571ba5d48601a6a40b441d0",
+  "validator_sha256": "76266e7c337d9d0001959a0b64748d79bcd43f5c834f17bd43beee6c55872d5e",
+  "test_log_sha256": "bb73cb126ab8888f0e9b045644d19f92f8f663be93ab7887badc5c05fd8af8e9",
+  "change": "Only SequenceScorer.score default method: tree -> full",
+  "numerical_implementation_unchanged": true,
+  "experiment_sources_preserved": [
+    {
+      "run": "rank_qwen3b_20261013_reference_v2",
+      "original_scoring_sha256": "7184cc972bc7f77361fdb952d36955e8210c031f9e5f64efce4fda9dc47beade",
+      "manifest_sha256": "36be2e2147952fc7367c0403cf9b433eac0593dde95a33099c8e12fb8c8da985"
+    },
+    {
+      "run": "rank_qwen1p5b_20261013_reference_v2",
+      "original_scoring_sha256": "7184cc972bc7f77361fdb952d36955e8210c031f9e5f64efce4fda9dc47beade",
+      "manifest_sha256": "ac53b3f63b4a598844f3b81c8c496b3cf6a1d74586a41722baebb1fa2fd9cf4f"
+    }
+  ],
+  "tests": 230,
+  "quality_or_timing_rerun": false,
+  "scope": "Post-study interface correction; retained experiments use explicit method arguments"
+}

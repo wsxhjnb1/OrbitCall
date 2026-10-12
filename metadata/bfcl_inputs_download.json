@@ -1,0 +1,31 @@
+{
+  "answers_downloaded": false,
+  "citation_url": "https://proceedings.mlr.press/v267/patil25a.html",
+  "data_citation": "Patil et al. (2025), The Berkeley Function Calling Leaderboard, ICML",
+  "data_license_basis": "Gorilla repository root Apache-2.0 license at the pinned revision",
+  "eligibility_or_split_executed": false,
+  "format_version": 1,
+  "gorilla_revision": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "inputs": [
+    {
+      "category": "simple_python",
+      "path": "data/raw/BFCL_v4_simple_python.json",
+      "sha256": "82dd63ba502eb2520c6b5d1d9a5c4b590e03ff261565175561f6228a367d1991",
+      "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/6ea57973c7a6097fd7c5915698c54c17c5b1b6c8/berkeley-function-call-leaderboard/bfcl_eval/data/BFCL_v4_simple_python.json"
+    },
+    {
+      "category": "live_simple",
+      "path": "data/raw/BFCL_v4_live_simple.json",
+      "sha256": "1af2ac87dca47556db7b7e37e51e28b459a38b594e3c7b3c792b4903598ca0c4",
+      "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/6ea57973c7a6097fd7c5915698c54c17c5b1b6c8/berkeley-function-call-leaderboard/bfcl_eval/data/BFCL_v4_live_simple.json"
+    }
+  ],
+  "license": {
+    "identifier": "Apache-2.0",
+    "path": "metadata/gorilla/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/6ea57973c7a6097fd7c5915698c54c17c5b1b6c8/LICENSE"
+  },
+  "note": "JSONL input byte hashes only; no answer endpoint is used by this script.",
+  "source_repository": "https://github.com/ShishirPatil/gorilla"
+}

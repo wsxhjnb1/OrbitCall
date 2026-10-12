@@ -1,0 +1,28 @@
+{
+  "valid": true,
+  "scope": "Publication byte and member validation; no inference or statistical rerun",
+  "host": "original DGX Spark workspace",
+  "archive_sha256": "90781ed1580505fd4618f26966c8fb1d52239cefd157b8a8a561ce8507bc0916",
+  "manifest_sha256": "db97abb0238f12cd66e2cfe7de49fbf021c0be8c60abd597299ba1a3493bbad0",
+  "files": 1310,
+  "unchanged_scientific_json_members": 1164,
+  "redacted_console_members": [
+    "logs/benchmark_qwen3b.log",
+    "logs/normalizer_qwen3b.log",
+    "logs/package_install_final_v1.log",
+    "logs/plot_setup.log",
+    "logs/postgeneration_normalizer_v1.log",
+    "logs/postgeneration_reference_v2.log",
+    "logs/postgeneration_v1.log",
+    "logs/pytest_install.log",
+    "logs/rank_qwen3b.log",
+    "logs/scoring_gate_3b_v1.log",
+    "logs/scoring_gate_3b_v2.log",
+    "logs/scoring_gate_3b_v3.log",
+    "runs/benchmark_qwen3b_20261013_v1/failure.json",
+    "runs/normalizer_qwen3b_20261013_v1/failure.json"
+  ],
+  "validator_sha256": "ec6475ca52efa4e9e193c0466f1018e5029ed37c2145595209c16dbe0a13bb4c",
+  "models_and_gold_excluded": true,
+  "all_original_and_published_hashes_verified": true
+}

@@ -1,0 +1,16 @@
+{
+  "summary_sha256": "1bb709b524b91331905dc81899d7c8559759cfd55fef455a5a565b8315f1321b",
+  "renderer_sha256": "8a3fe1837ee4c29a841903e3304685bf36871aa11f65a3329ac90cfd29a4a0a8",
+  "analysis_source_sha256": "68184c78c9bf862c4825c4fe33efeda995ff10a41a2c24d3bfba7bedb7bc6941",
+  "scope": "Presentation-only layout; all estimates, controls, block values and population counts unchanged",
+  "host": "original DGX Spark GB10",
+  "matplotlib": "3.10.3",
+  "files": {
+    "reducer_block_ratios.pdf": "7573fe36d402fed84f6ede7ae695c30adecd57b36850e2429bde4d80c54874b2",
+    "reducer_block_ratios.png": "f51cf0392ab41b35356e4835467061fe925fc81d5f7f3a15ee8831157f835b8e",
+    "scorer_block_ratios.pdf": "d2b1bb2280fe99e88bfb2e7cc4f0df874b7260079c0fead472e30fd429d1ac9d",
+    "scorer_block_ratios.png": "10a81e2be60154ea2d2f11d64f2c010d05cffb9e5ed78ffbb97eac4251653644",
+    "test_accuracy.pdf": "f740701f102f960a0e74149dd5ce7590e4dad2e2b37095fc70abc90f01a7efff",
+    "test_accuracy.png": "1fef6680914fc1de45297e8aa825d1cf9c9ad94f96f7a337ac56b8b2889b20a2"
+  }
+}

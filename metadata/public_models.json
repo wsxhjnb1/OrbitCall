@@ -1,0 +1,138 @@
+{
+  "models": [
+    {
+      "repo_id": "Qwen/Qwen2.5-3B-Instruct",
+      "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct",
+      "files": [
+        {
+          "path": "LICENSE",
+          "size": 7388,
+          "sha256": null,
+          "git_blob_id": "ed317377ac0abff39f17eec693ce664f4b8152af"
+        },
+        {
+          "path": "README.md",
+          "size": 4930,
+          "sha256": null,
+          "git_blob_id": "0b87f6362ee8ad33b2223afb47134264380f13fe"
+        },
+        {
+          "path": "config.json",
+          "size": 661,
+          "sha256": null,
+          "git_blob_id": "51b83fbd4e2d363b60235b9c8d494046a83c1cbf"
+        },
+        {
+          "path": "generation_config.json",
+          "size": 242,
+          "sha256": null,
+          "git_blob_id": "bf077f03dc569cfb8a90b3ec1ad20365a620bad6"
+        },
+        {
+          "path": "merges.txt",
+          "size": 1671839,
+          "sha256": null,
+          "git_blob_id": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0"
+        },
+        {
+          "path": "model-00001-of-00002.safetensors",
+          "size": 3968658944,
+          "sha256": "67347b23fb4165b652eb6611f5e1f2a06dfcddba8e909df1b2b0b1857bee06c2",
+          "git_blob_id": "023b91070b9cfb1f9ab22fe215519bd786db6906"
+        },
+        {
+          "path": "model-00002-of-00002.safetensors",
+          "size": 2203268048,
+          "sha256": "a40d941d0e7e0b966ad8b62bb6d6b7c88cce1299197b599d9d0a4ce59aabfc1d",
+          "git_blob_id": "02754809bbcaf9c3f1a667c1ca0c3b153d6d72ac"
+        },
+        {
+          "path": "model.safetensors.index.json",
+          "size": 35581,
+          "sha256": null,
+          "git_blob_id": "38047c6284a25427043f0ab040f623a2a20dd093"
+        },
+        {
+          "path": "tokenizer.json",
+          "size": 7031645,
+          "sha256": null,
+          "git_blob_id": "443909a61d429dff23010e5bddd28ff530edda00"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "size": 7305,
+          "sha256": null,
+          "git_blob_id": "07bfe0640cb5a0037f9322287fbfc682806cf672"
+        },
+        {
+          "path": "vocab.json",
+          "size": 2776833,
+          "sha256": null,
+          "git_blob_id": "4783fe10ac3adce15ac8f358ef5462739852c569"
+        }
+      ]
+    },
+    {
+      "repo_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct",
+      "files": [
+        {
+          "path": "LICENSE",
+          "size": 11343,
+          "sha256": null,
+          "git_blob_id": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab"
+        },
+        {
+          "path": "README.md",
+          "size": 4917,
+          "sha256": null,
+          "git_blob_id": "b3327a17e2ffa52e0fd941a2810b18a9fd0e7d94"
+        },
+        {
+          "path": "config.json",
+          "size": 660,
+          "sha256": null,
+          "git_blob_id": "f81ead14ab072d65a07817f83a3ee0e5a1890d10"
+        },
+        {
+          "path": "generation_config.json",
+          "size": 242,
+          "sha256": null,
+          "git_blob_id": "dfc11073787daf1b0f9c0f1499487ab5f4c93738"
+        },
+        {
+          "path": "merges.txt",
+          "size": 1671839,
+          "sha256": null,
+          "git_blob_id": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0"
+        },
+        {
+          "path": "model.safetensors",
+          "size": 3087467144,
+          "sha256": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+          "git_blob_id": "9127f71e7314df0064f469223749e5f237e06463"
+        },
+        {
+          "path": "tokenizer.json",
+          "size": 7031645,
+          "sha256": null,
+          "git_blob_id": "443909a61d429dff23010e5bddd28ff530edda00"
+        },
+        {
+          "path": "tokenizer_config.json",
+          "size": 7305,
+          "sha256": null,
+          "git_blob_id": "07bfe0640cb5a0037f9322287fbfc682806cf672"
+        },
+        {
+          "path": "vocab.json",
+          "size": 2776833,
+          "sha256": null,
+          "git_blob_id": "4783fe10ac3adce15ac8f358ef5462739852c569"
+        }
+      ]
+    }
+  ]
+}

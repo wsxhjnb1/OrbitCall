@@ -1,0 +1,20 @@
+{
+  "stage": "publication archive, after completed scientific evaluation",
+  "first_attempt": {
+    "archive": "evidence/raw_results.tar.gz",
+    "status": "rejected partial, privately retained and excluded from Git",
+    "sha256": "1ae881953e5ea35ccd007ff763de42515a7d582b1aaf080d62c52e907d8cd1ca",
+    "cause": "Raw JSON escape bytes in prose Innocent III followed by colon and escaped newline falsely matched a Windows drive path"
+  },
+  "correction": "Inspect decoded JSON string values for absolute paths; preserve all original scientific JSON bytes",
+  "completed_retry": {
+    "archive": "evidence/raw_results_v2.tar.gz",
+    "bytes": 44354465,
+    "files": 1310,
+    "sha256": "90781ed1580505fd4618f26966c8fb1d52239cefd157b8a8a561ce8507bc0916",
+    "manifest": "evidence/MANIFEST.json"
+  },
+  "scientific_artifacts_changed": false,
+  "quality_or_timing_rerun": false,
+  "receipt_scope": "Post-export provenance; supplied separately from the raw archive"
+}

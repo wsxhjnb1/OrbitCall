@@ -1,0 +1,12 @@
+{
+  "host_architecture": "aarch64",
+  "python": "3.12.3",
+  "packages": {
+    "torch": "2.13.0+cu130",
+    "transformers": "5.15.0",
+    "triton": "3.7.1",
+    "numpy": "2.3.5",
+    "pytest": "9.1.1"
+  },
+  "gpu": "NVIDIA GB10, GPU-2436ad33-655e-6ff1-a4ba-96a159b20bc4, 580.159.03"
+}

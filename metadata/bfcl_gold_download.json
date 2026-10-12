@@ -1,0 +1,30 @@
+{
+  "revision": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "pre_gold_freezes": [
+    {
+      "run": "rank_qwen3b_20261013_reference_v2",
+      "receipt_sha256": "dfd0333cdef2b7bd2499c220e348908c806a286b42eb0bb10a5e6b4b750cd9e5",
+      "candidates_sha256": "8a6a5da6d1a6867e99c29e434388f86498865253c9ed27f20451f14bcfe49ab4",
+      "predictions_sha256": "58ff4f3ce5801d8d6142f1870ac891570a6383751e52b473e233322074122c1a"
+    },
+    {
+      "run": "rank_qwen1p5b_20261013_reference_v2",
+      "receipt_sha256": "22a326c7e3bb95dc1e714d35f205f749d3dee75920036e66a263a12d709613c8",
+      "candidates_sha256": "d4770dde5dbec2f37cd848f8f2f5a850b3edbdeeac86ddbb521cf7a6861d1141",
+      "predictions_sha256": "7e03868f6a128dc02fe77d3ea899838f1136d8e4b5a5863ef5f53ffcf10c11f8"
+    }
+  ],
+  "downloads": [
+    {
+      "file": "BFCL_v4_simple_python.json",
+      "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/6ea57973c7a6097fd7c5915698c54c17c5b1b6c8/berkeley-function-call-leaderboard/bfcl_eval/data/possible_answer/BFCL_v4_simple_python.json",
+      "sha256": "90cd5bc653690ee8e459b5b3f3fc9458606f7f3fcbf795bb51b7dc581f8c86dc"
+    },
+    {
+      "file": "BFCL_v4_live_simple.json",
+      "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/6ea57973c7a6097fd7c5915698c54c17c5b1b6c8/berkeley-function-call-leaderboard/bfcl_eval/data/possible_answer/BFCL_v4_live_simple.json",
+      "sha256": "fec9cfa9744a936f9126981e85a2023da1e63e273eafebc81923a1162fad70ce"
+    }
+  ],
+  "labels_evaluated": false
+}

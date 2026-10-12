@@ -1,0 +1,177 @@
+{
+  "status": "accepted_artifact_consistency_review",
+  "script_sha256": "0b569e1e267227b7bf9b4c8d497f65169ef91f27ec1851796ee64c259395722c",
+  "live_gpu_identity": "NVIDIA GB10, GPU-2436ad33-655e-6ff1-a4ba-96a159b20bc4",
+  "execution": "CPU-only audit on authorized DGX Spark; no model/GPU jobs",
+  "evidence_summary_sha256": "1bb709b524b91331905dc81899d7c8559759cfd55fef455a5a565b8315f1321b",
+  "results_markdown_sha256": "e2dc11cbf94a1017fb823a1b727201ccd59a58abac5bffc30c7b2b06b3945ce2",
+  "analyzer_source_sha256": "68184c78c9bf862c4825c4fe33efeda995ff10a41a2c24d3bfba7bedb7bc6941",
+  "verified_analyzer_input_artifacts": 432,
+  "studies": [
+    {
+      "model": "Qwen2.5-3B-Instruct",
+      "population": 119,
+      "development": 20,
+      "test": 99,
+      "supported_test": 98,
+      "unsupported_ids": [
+        "simple_python_17"
+      ],
+      "zero_candidate_ids": [],
+      "diagnostic_fast_path_failed_ids": [
+        "simple_python_279"
+      ],
+      "selected_fixed_policy": "fixed_102",
+      "dev_selected_equal_score_control": "dev_selected_fixed",
+      "mass_test": {
+        "population": 99,
+        "supported": 98,
+        "unsupported": 1,
+        "successes": 91,
+        "supported_accuracy": 0.9285714285714286,
+        "question_wilson_95_interval": [
+          0.8598398906366204,
+          0.9649715464019392
+        ],
+        "all_population_accuracy_bounds": [
+          0.9191919191919192,
+          0.9292929292929293
+        ],
+        "interval_scope": "supported items; question-level independence is an approximation"
+      },
+      "canonical_test": {
+        "population": 99,
+        "supported": 98,
+        "unsupported": 1,
+        "successes": 91,
+        "supported_accuracy": 0.9285714285714286,
+        "question_wilson_95_interval": [
+          0.8598398906366204,
+          0.9649715464019392
+        ],
+        "all_population_accuracy_bounds": [
+          0.9191919191919192,
+          0.9292929292929293
+        ],
+        "interval_scope": "supported items; question-level independence is an approximation"
+      },
+      "vote8_test": {
+        "population": 99,
+        "supported": 98,
+        "unsupported": 1,
+        "successes": 91,
+        "supported_accuracy": 0.9285714285714286,
+        "question_wilson_95_interval": [
+          0.8598398906366204,
+          0.9649715464019392
+        ],
+        "all_population_accuracy_bounds": [
+          0.9191919191919192,
+          0.9292929292929293
+        ],
+        "interval_scope": "supported items; question-level independence is an approximation"
+      },
+      "mass_advantage_over_dev_selected_control_supported": false,
+      "receipt_sha256": "dfd0333cdef2b7bd2499c220e348908c806a286b42eb0bb10a5e6b4b750cd9e5",
+      "evaluation_sha256": "3138d7228bfcd5daf2498db365569a35e91e7202f5528ada60a8c6c2a0033cfa",
+      "evaluator_source_sha256": "02890d23cd12047889434df289672d16f2d65917f7bf985fa58e73a645f8e4d2",
+      "current_archived_frozen_source_match": true
+    },
+    {
+      "model": "Qwen2.5-1.5B-Instruct",
+      "population": 119,
+      "development": 20,
+      "test": 99,
+      "supported_test": 98,
+      "unsupported_ids": [
+        "simple_python_17"
+      ],
+      "zero_candidate_ids": [
+        "live_simple_21-4-1",
+        "live_simple_232-122-1",
+        "live_simple_63-29-3",
+        "live_simple_65-29-5",
+        "live_simple_74-36-2",
+        "live_simple_75-36-3",
+        "simple_python_11",
+        "simple_python_111",
+        "simple_python_159",
+        "simple_python_17",
+        "simple_python_194",
+        "simple_python_21",
+        "simple_python_219",
+        "simple_python_238",
+        "simple_python_270",
+        "simple_python_6"
+      ],
+      "diagnostic_fast_path_failed_ids": [],
+      "selected_fixed_policy": "fixed_012",
+      "dev_selected_equal_score_control": "canonical_schema",
+      "mass_test": {
+        "population": 99,
+        "supported": 98,
+        "unsupported": 1,
+        "successes": 77,
+        "supported_accuracy": 0.7857142857142857,
+        "question_wilson_95_interval": [
+          0.6945197258584814,
+          0.8553545655005581
+        ],
+        "all_population_accuracy_bounds": [
+          0.7777777777777778,
+          0.7878787878787878
+        ],
+        "interval_scope": "supported items; question-level independence is an approximation"
+      },
+      "canonical_test": {
+        "population": 99,
+        "supported": 98,
+        "unsupported": 1,
+        "successes": 77,
+        "supported_accuracy": 0.7857142857142857,
+        "question_wilson_95_interval": [
+          0.6945197258584814,
+          0.8553545655005581
+        ],
+        "all_population_accuracy_bounds": [
+          0.7777777777777778,
+          0.7878787878787878
+        ],
+        "interval_scope": "supported items; question-level independence is an approximation"
+      },
+      "vote8_test": {
+        "population": 99,
+        "supported": 98,
+        "unsupported": 1,
+        "successes": 83,
+        "supported_accuracy": 0.8469387755102041,
+        "question_wilson_95_interval": [
+          0.7627113247514552,
+          0.9049931718988073
+        ],
+        "all_population_accuracy_bounds": [
+          0.8383838383838383,
+          0.8484848484848485
+        ],
+        "interval_scope": "supported items; question-level independence is an approximation"
+      },
+      "mass_advantage_over_dev_selected_control_supported": false,
+      "receipt_sha256": "22a326c7e3bb95dc1e714d35f205f749d3dee75920036e66a263a12d709613c8",
+      "evaluation_sha256": "347b92fa594a5957d00c35ead3df976e8bd6ccb2f250af94f50b29dd8390f4f0",
+      "evaluator_source_sha256": "02890d23cd12047889434df289672d16f2d65917f7bf985fa58e73a645f8e4d2",
+      "current_archived_frozen_source_match": true
+    }
+  ],
+  "checks": [
+    "Qwen2.5-3B-Instruct: full source/freeze, orbit, all controls, support, dev selection and aggregate summaries verified",
+    "Qwen2.5-1.5B-Instruct: full source/freeze, orbit, all controls, support, dev selection and aggregate summaries verified",
+    "All 432 analyzer input hashes verified, including failed retained runs"
+  ],
+  "limitations": [
+    "Does not re-evaluate gold correctness or run the official BFCL checker",
+    "Source/hash chain is not a cryptographic wall-clock chronology proof",
+    "Finite-orbit mass does not outperform the strongest predeclared equal-score controls here",
+    "Kernel-only speed is not end-to-end inference throughput",
+    "Full FP32 quality reference is retained despite cached/tree diagnostic failures"
+  ]
+}
