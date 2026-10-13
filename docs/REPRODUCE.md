@@ -1,6 +1,8 @@
-# Reproduce the OrbitCall study
+# Historical FP32 study reproduction
 
-This document specifies the current command sequence and expected artifacts.
+This document records the historical FP32 study and its original experiment
+commands. Use [CUDA/vLLM reproduction](VLLM_REPRODUCE.md) for the released native
+BF16 adapter and portable Agent demo.
 The completed, reviewed results are in [RESULTS.md](../evidence/RESULTS.md). The frozen
 [protocol](../PROTOCOL.md) controls precision, samples, splits, comparisons, and
 the four-GPU-hour initial compute budget. Retain failed runs and amendments.

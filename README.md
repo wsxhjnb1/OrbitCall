@@ -1,7 +1,8 @@
 # OrbitCall
 
-**Tool-call scoring inside a real vLLM Agent loop.**
+**Tool-call scoring for CUDA-based vLLM Agents.**
 
+OrbitCall is an opt-in vLLM plugin for CUDA GPUs.
 Generate candidates, score their finite JSON key-order families, execute a tool,
 and use its actual observation in the next round. Native BF16 throughout.
 
@@ -22,7 +23,9 @@ retaining full-vocabulary probabilities and every JSON/EOS token.
 Conceptual illustrations generated with ChatGPT; cards and matrices are schematic.
 [Illustration prompts](docs/ILLUSTRATION_PROMPTS.md)
 
-## Measured on DGX Spark
+## Benchmarks
+
+The experiments below ran on NVIDIA DGX Spark (GB10).
 
 | Qwen2.5 | Complete Agent ratio | Scoring-stage ratio | Native / optimized task success |
 | --- | ---: | ---: | ---: |
@@ -40,7 +43,7 @@ Calls, observations and final answers match. These are local executable fixtures
 ![Where the complete Agent wall time went](evidence/vllm_agent/stage_wall_times.png)
 
 **144/144 locked round pools:** zero score error; all eleven decisions match.
-**419 tests passed on Spark.** [Report and controls](evidence/vllm_agent/RESULTS.md) ·
+**419 tests passed in the experimental environment.** [Report and controls](evidence/vllm_agent/RESULTS.md) ·
 [Raw runs](evidence/vllm_agent/raw_results_v1.tar.gz) · [Frozen protocol](docs/VLLM_AGENT_SHAPE_PROTOCOL.md)
 
 ## Try it

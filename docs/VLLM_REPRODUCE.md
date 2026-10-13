@@ -7,6 +7,11 @@ and [results](../evidence/vllm_agent/RESULTS.md) before interpreting timings.
 
 ## Use the adapter
 
+OrbitCall targets compatible CUDA/vLLM environments. The released adapter and
+Agent demo do not bind to a Spark GPU UUID. DGX Spark (GB10) was the experimental
+platform for the published results; other GPU configurations need their own
+compatibility and performance validation.
+
 Provision public vLLM0.29.0 with a CUDA PyTorch build compatible with your GPU.
 The measured GB10 environment used Python3.12.3, Torch2.13.0+cu130,
 Transformers5.15.0 and Triton3.7.1. Source and native-library identities are
@@ -43,7 +48,8 @@ not fake probability zeros. A finite-family likelihood is not semantic truth.
 
 ## Replay the frozen study on its original host
 
-The driver/analyzer retain the original Spark GPU UUID as an evidence guard.
+The frozen benchmark driver/analyzer retain the original Spark GPU UUID as an
+experimental evidence guard.
 Portable demos do not assert that identity. A new-host experiment needs a
 prospective hardware/configuration amendment and fresh source/run records;
 do not replace the original receipts to relabel new results.
