@@ -1,0 +1,138 @@
+{
+  "scope": "Conceptual README illustration replacement only; no new numerical experiment",
+  "recorded_at_utc": "2026-10-13T16:54:26.991072+00:00",
+  "generation_mode": "ChatGPT built-in image_gen; no CLI/API fallback",
+  "prompts": {
+    "path": "docs/ILLUSTRATION_PROMPTS.md",
+    "sha256": "2085ca6c119c7d81ffaa2f52dd9627a8c41b4886a45950339fbc679d0ef6056b"
+  },
+  "prior_commit": "477aaa8782032d8be0ee2a49acf79b30b915dd98",
+  "illustrations": [
+    {
+      "path": "docs/assets/agent_loop_illustrated.png",
+      "bytes": 1840911,
+      "width": 1672,
+      "height": 941,
+      "sha256": "1b60069db8c290d66ff528b73d9dabf7ac3bf1dd2c296301ded3538332bfaf81",
+      "identical_to_generated_png": true,
+      "visual_review": "Legible conceptual illustration; no quantitative benchmark claim"
+    },
+    {
+      "path": "docs/assets/native_suffix_illustrated.png",
+      "bytes": 1874384,
+      "width": 1672,
+      "height": 941,
+      "sha256": "c04fab1593b3f50d9ccd9e84590ffd210e782c0d24129e078984348b4435d833",
+      "identical_to_generated_png": true,
+      "visual_review": "Legible conceptual illustration; no quantitative benchmark claim"
+    }
+  ],
+  "visual_review_constraints": [
+    "Agent flow: generate, validate, score, select, execute, observe, feedback into next round",
+    "BF16 full LM-head projection precedes both branches; suffix selection occurs afterward",
+    "All vocabulary columns retained; first suffix predictor and EOS predictor included",
+    "No scoring APC, quantization, reduced model/head computation or fabricated benchmark chart",
+    "JSON-like cards and matrix indices are conceptual; exact API/tensor documentation remains in source"
+  ],
+  "readme": {
+    "sha256": "670cc99890685e2a1da5f4d80feec45c3fe4c94b76660a4f1ffa1031d68eed9a",
+    "relative_links_exist": [
+      "docs/assets/agent_loop_illustrated.png",
+      "docs/assets/native_suffix_illustrated.png",
+      "docs/ILLUSTRATION_PROMPTS.md",
+      "evidence/vllm_agent/agent_vs_scoring_ratios.png",
+      "evidence/vllm_agent/stage_wall_times.png",
+      "evidence/vllm_agent/RESULTS.md",
+      "evidence/vllm_agent/raw_results_v1.tar.gz",
+      "docs/VLLM_AGENT_SHAPE_PROTOCOL.md",
+      "docs/VLLM_REPRODUCE.md",
+      "docs/THEORY.md",
+      "docs/RELATED_WORK.md",
+      "evidence/acceleration/RESULTS.md",
+      "THIRD_PARTY_NOTICES.md"
+    ],
+    "embedded_images": [
+      "docs/assets/agent_loop_illustrated.png",
+      "docs/assets/native_suffix_illustrated.png",
+      "evidence/vllm_agent/agent_vs_scoring_ratios.png",
+      "evidence/vllm_agent/stage_wall_times.png"
+    ],
+    "measured_section_and_remaining_content_unchanged": true
+  },
+  "unchanged_research_artifacts": [
+    {
+      "path": "evidence/vllm_agent/RESULTS.md",
+      "sha256": "fd7e3b270e66690fa31f5c9cb41973bf5a82ff8cb3a6364f2282079b3c166dba",
+      "identical_to_prior_commit": true
+    },
+    {
+      "path": "evidence/vllm_agent/summary.json",
+      "sha256": "7db0016a226af742c00a41327df71a2c34eb1bd8a4a410554f8f438c4655994e",
+      "identical_to_prior_commit": true
+    },
+    {
+      "path": "evidence/vllm_agent/independent_analysis.json",
+      "sha256": "40c72261f6f3f64cb6d7dcf1ea80e09abdbe854f889ac5ef98b064f4c460c728",
+      "identical_to_prior_commit": true
+    },
+    {
+      "path": "evidence/vllm_agent/raw_results_v1.tar.gz",
+      "sha256": "5cbc505a541f291ec2505548e1c3b539195beacc5bb724f1e634ea1100e7a4cf",
+      "identical_to_prior_commit": true
+    },
+    {
+      "path": "evidence/vllm_agent/RELEASE_VALIDATION_v2.json",
+      "sha256": "5518a43d1441e8bc5bab359fd5a7617707cb5815261ca6215fc4af33576decf4",
+      "identical_to_prior_commit": true
+    },
+    {
+      "path": "evidence/vllm_agent/RENDER_RECEIPT.json",
+      "sha256": "3a98d96b851b0ea007f87cdf2cc68f788fa6141ff33801636e355400a403c7df",
+      "identical_to_prior_commit": true
+    },
+    {
+      "path": "evidence/vllm_agent/agent_vs_scoring_ratios.png",
+      "sha256": "6592532fe41a1d6b072f531dd880cfd22844ecb3063ee5c6db09a957b86a407f",
+      "identical_to_prior_commit": true
+    },
+    {
+      "path": "evidence/vllm_agent/stage_wall_times.png",
+      "sha256": "2cac8126164647f44aa18245230c5d9dbc0937fec52d924e37089fcb162e80b3",
+      "identical_to_prior_commit": true
+    },
+    {
+      "path": "docs/VLLM_AGENT_SHAPE_PROTOCOL.md",
+      "sha256": "90bb3f15c56e78c633081ce21323a4c77d8a0addc305c90000f830f10454a4e7",
+      "identical_to_prior_commit": true
+    },
+    {
+      "path": "src/orbitcall/vllm_plugin.py",
+      "sha256": "27ddd254be5ee1964a969eed585dbb08df7828cf106e6eea07023c266d19de49",
+      "identical_to_prior_commit": true
+    },
+    {
+      "path": "docs/assets/agent_flow.svg",
+      "sha256": "cee093f9632e9c4b712d6b3bb324c0745adea581b48bea002fddf7b0c184a2a1",
+      "identical_to_prior_commit": true
+    },
+    {
+      "path": "docs/assets/native_shape_suffix.svg",
+      "sha256": "5211b9a7456cab37b1fa085abc9c0fcdc7ae30006a530b66f0663919909e509f",
+      "identical_to_prior_commit": true
+    }
+  ],
+  "unchanged_resume_pdfs": [
+    {
+      "path": "output/pdf/yuhao_xie_resume_en.pdf",
+      "sha256": "666c5103559b40b8e088259d718c1276406a2a90bc025d20ed34bd5fce9bb68a",
+      "identical_to_prior_delivery": true
+    },
+    {
+      "path": "output/pdf/yuhao_xie_resume_zh.pdf",
+      "sha256": "a2e8835045d44351cab54d3002dd41ad71d7f4d91417d2c70cd4819c8d70e1cc",
+      "identical_to_prior_delivery": true
+    }
+  ],
+  "prior_release_receipts_preserved": true,
+  "all_checks_passed": true
+}
