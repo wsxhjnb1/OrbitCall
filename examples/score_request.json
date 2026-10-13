@@ -1,0 +1,12 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "Choose a tool call to add the integers 3 and 5. The available tool is add(a: integer, b: integer)."
+    }
+  ],
+  "calls": [
+    {"name": "add", "arguments": {"a": 3, "b": 5}},
+    {"name": "add", "arguments": {"a": 3, "b": 4}}
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "valid": true,
+  "driver_sha256": "967bec71eb429291e5783d4a81257e6e68110bc4cf07d42b8326ffae760ba87a",
+  "development_plan_sha256": "2cd02059da4f1a6aeb7094de148560fef928ac7b3f8b6786d58c3ff83fb4aea4",
+  "records": [
+    {
+      "file": "cached_native_outputs.json",
+      "id": "simple_python_259",
+      "method": "cached",
+      "valid": true
+    },
+    {
+      "file": "cached_native_outputs.json",
+      "id": "simple_python_279",
+      "method": "cached",
+      "valid": true
+    },
+    {
+      "file": "cached_native_outputs.json",
+      "id": "simple_python_283",
+      "method": "cached",
+      "valid": true
+    },
+    {
+      "file": "cached_native_outputs.json",
+      "id": "simple_python_393",
+      "method": "cached",
+      "valid": true
+    },
+    {
+      "file": "cached_tf32x3_all_outputs.json",
+      "id": "simple_python_259",
+      "method": "cached",
+      "valid": true
+    },
+    {
+      "file": "cached_tf32x3_all_outputs.json",
+      "id": "simple_python_279",
+      "method": "cached",
+      "valid": true
+    },
+    {
+      "file": "cached_tf32x3_all_outputs.json",
+      "id": "simple_python_283",
+      "method": "cached",
+      "valid": true
+    },
+    {
+      "file": "cached_tf32x3_all_outputs.json",
+      "id": "simple_python_393",
+      "method": "cached",
+      "valid": true
+    },
+    {
+      "file": "tree_native_outputs.json",
+      "id": "simple_python_259",
+      "method": "tree",
+      "valid": true
+    },
+    {
+      "file": "tree_native_outputs.json",
+      "id": "simple_python_279",
+      "method": "tree",
+      "valid": true
+    },
+    {
+      "file": "tree_native_outputs.json",
+      "id": "simple_python_283",
+      "method": "tree",
+      "valid": true
+    },
+    {
+      "file": "tree_native_outputs.json",
+      "id": "simple_python_393",
+      "method": "tree",
+      "valid": true
+    },
+    {
+      "file": "tree_tf32x3_all_outputs.json",
+      "id": "simple_python_259",
+      "method": "tree",
+      "valid": true
+    },
+    {
+      "file": "tree_tf32x3_all_outputs.json",
+      "id": "simple_python_279",
+      "method": "tree",
+      "valid": true
+    },
+    {
+      "file": "tree_tf32x3_all_outputs.json",
+      "id": "simple_python_283",
+      "method": "tree",
+      "valid": true
+    },
+    {
+      "file": "tree_tf32x3_all_outputs.json",
+      "id": "simple_python_393",
+      "method": "tree",
+      "valid": true
+    }
+  ],
+  "native_records": 4,
+  "configuration": {
+    "kind": "pipeline",
+    "method": "tree",
+    "linear": {
+      "kind": "linear",
+      "precision": "tf32x3",
+      "scope": "all"
+    }
+  },
+  "gpu_work": false
+}

@@ -1,0 +1,1034 @@
+{
+  "answers_accessed": false,
+  "epoch": 1791862746.3497586,
+  "records": [
+    {
+      "model": "Qwen2.5-3B-Instruct",
+      "candidate_run": "orbitcall_qwen3b_20261013_v1",
+      "candidates_sha256": "8a6a5da6d1a6867e99c29e434388f86498865253c9ed27f20451f14bcfe49ab4",
+      "timing_fixture_ids": [
+        "live_simple_164-97-0",
+        "live_simple_26-6-0",
+        "simple_python_139",
+        "simple_python_152",
+        "simple_python_255",
+        "simple_python_344",
+        "simple_python_352",
+        "simple_python_388"
+      ],
+      "test_dispositions": [
+        {
+          "id": "live_simple_115-71-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_123-79-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_137-90-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_164-97-0",
+          "primary_candidate_count": 4,
+          "eligible": true
+        },
+        {
+          "id": "live_simple_179-104-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_2-2-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_20-4-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_21-4-1",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_231-122-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_232-122-1",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_245-127-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_246-128-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_251-133-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_252-134-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_26-6-0",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "live_simple_3-2-1",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_47-20-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_54-25-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_55-25-1",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_56-26-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_57-26-1",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_68-32-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_69-33-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_72-36-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_73-36-1",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_74-36-2",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_75-36-3",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_76-37-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_94-55-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_98-58-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_106",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_11",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_111",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_134",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_139",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_140",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_141",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_150",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_152",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_159",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_160",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_165",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_167",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_17",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_170",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_171",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_172",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_175",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_184",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_19",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_191",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_194",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_196",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_197",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_207",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_21",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_216",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_219",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_22",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_223",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_236",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_237",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_238",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_24",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_243",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_248",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_250",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_253",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_255",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_266",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_270",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_281",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_293",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_3",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_31",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_313",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_321",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_339",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_341",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_342",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_344",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_350",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_352",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_364",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_367",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_378",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_383",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_388",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_389",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_390",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_398",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_4",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_59",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_61",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_66",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_75",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_88",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_91",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_95",
+          "primary_candidate_count": 1,
+          "eligible": false
+        }
+      ]
+    },
+    {
+      "model": "Qwen2.5-1.5B-Instruct",
+      "candidate_run": "orbitcall_qwen1p5b_20261013_v1",
+      "candidates_sha256": "d4770dde5dbec2f37cd848f8f2f5a850b3edbdeeac86ddbb521cf7a6861d1141",
+      "timing_fixture_ids": [
+        "live_simple_231-122-0",
+        "live_simple_26-6-0",
+        "live_simple_55-25-1",
+        "simple_python_150",
+        "simple_python_191",
+        "simple_python_197",
+        "simple_python_216",
+        "simple_python_255"
+      ],
+      "test_dispositions": [
+        {
+          "id": "live_simple_115-71-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_123-79-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_137-90-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_164-97-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_179-104-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_2-2-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_20-4-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_21-4-1",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_231-122-0",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "live_simple_232-122-1",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_245-127-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_246-128-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_251-133-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_252-134-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_26-6-0",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "live_simple_3-2-1",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_47-20-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_54-25-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_55-25-1",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "live_simple_56-26-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_57-26-1",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_68-32-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_69-33-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_72-36-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_73-36-1",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_74-36-2",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_75-36-3",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_76-37-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_94-55-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "live_simple_98-58-0",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_106",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_11",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_111",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_134",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_139",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_140",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_141",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_150",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_152",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_159",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_160",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_165",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_167",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_17",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_170",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_171",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_172",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_175",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_184",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_19",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_191",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_194",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_196",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_197",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_207",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_21",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_216",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_219",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_22",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_223",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_236",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_237",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_238",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_24",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_243",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_248",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_250",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_253",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_255",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_266",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_270",
+          "primary_candidate_count": 0,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_281",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_293",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_3",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_31",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_313",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_321",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_339",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_341",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_342",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_344",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_350",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_352",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_364",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_367",
+          "primary_candidate_count": 4,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_378",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_383",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_388",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_389",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_390",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_398",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_4",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_59",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_61",
+          "primary_candidate_count": 2,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_66",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_75",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_88",
+          "primary_candidate_count": 1,
+          "eligible": false
+        },
+        {
+          "id": "simple_python_91",
+          "primary_candidate_count": 4,
+          "eligible": true
+        },
+        {
+          "id": "simple_python_95",
+          "primary_candidate_count": 1,
+          "eligible": false
+        }
+      ]
+    }
+  ],
+  "inputs_sha256": "1e8edf278caa6066c1b4c1fab07599cc8acb03fdf0037d3447603ff75916060c",
+  "selection_rule": "first up to8 lexical test IDs with >=2 primary calls",
+  "stage": "before tensorlinear or CUDAgraph discovery; initial12-arm packing screen retired",
+  "script_sha256": "569b00a245e276ed44f11e178cb35cb4ab97cce397cca5b0ab2f8ef855e07a14"
+}

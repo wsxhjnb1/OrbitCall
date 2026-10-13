@@ -1,6 +1,6 @@
 # OrbitCall
 
-Tool-call likelihood scoring and GPU logprob normalization, evaluated on DGX Spark.
+GPU-accelerated tool-call likelihood scoring, evaluated on DGX Spark.
 
 OrbitCall enumerates a small family of JSON spellings for each generated tool
 call, scores every terminated token sequence, and sums their probabilities.
@@ -8,12 +8,32 @@ It also implements shared-prefix tree scoring and a requested-token logprob
 reducer so that the statistical decision rule and its execution cost can be
 studied separately.
 
-**Completed study:** two pinned Qwen2.5 models, 119 frozen BFCL-derived inputs,
-230 passing tests, answer-isolated predictions, whole-population numerical
-audits, and paired ABBA measurements. The Triton reducer is faster than direct
-native cross-entropy on the captured FP32 logits; complete scorer latency is
-essentially unchanged. Finite-family mass does not outperform the strong
-fixed-order controls on this held-out set.
+**Complete-score acceleration:** shared prompt/token-prefix scoring plus
+explicitly opted-in Triton TF32x3 linears achieves **7.95× / 6.28×** median
+speed ratios over independent IEEE FP32 full-prompt scoring for Qwen2.5-3B /
+1.5B. Against the stronger, same-structure FP32 prefix-tree control, the ratios
+are **1.47× / 1.51×**. Six paired held-out blocks per control and 299 passing
+tests are retained. Timing includes the complete scoring stage; candidate
+generation, model loading and serving throughput are outside this measurement.
+
+The new approximate path preserves FP32 storage, the full vocabulary denominator,
+all declared JSON spellings, EOS tokens and eleven decision rules. Audits cover
+119 / 103 nonempty candidate pools, with the 1.5B model's 16 empty pools reported
+separately. Maximum token-logprob deviations are **0.0013733 / 0.0001388 nats**;
+all audited decisions agree with the full reference. This is empirical fidelity
+under a prospectively frozen error budget, rather than bitwise equivalence.
+
+[Complete-score report and controls](evidence/acceleration/RESULTS.md) ·
+[Independent analysis](evidence/acceleration/independent_analysis.json) ·
+[New raw evidence](evidence/acceleration/raw_results_v1.tar.gz) ·
+[Usage example](examples/score_with_shared_prefixes.py)
+
+**Original strict study:** two pinned models, 119 frozen BFCL-derived inputs,
+230 tests at that release, answer-isolated predictions and paired ABBA
+measurements. The isolated Triton normalizer improved while complete scorer
+latency stayed near 1×. Finite-family mass did not outperform the strong
+fixed-order controls. Those measurements and their strict numerical failures
+remain unchanged; the approximate follow-up has its own frozen protocols.
 
 [Results and all controls](evidence/RESULTS.md) ·
 [Machine-readable results](evidence/summary.json) ·
@@ -29,8 +49,14 @@ fixed-order controls on this held-out set.
 - **Three teacher-forcing paths:** independent full-prompt batching, immutable
   prompt-cache batched suffix scoring, and a packed prefix tree whose attention
   mask includes only the prompt and each node's ancestors. All task-quality
-  predictions use the full FP32 reference path; cache/tree paths are numerical
-  diagnostics after their unchanged tolerance gates failed.
+  predictions use the full FP32 reference path. The original cache/tree
+  diagnostics failed their unchanged strict gates; the separate approximate
+  study accepts an explicitly selected tree path under its new error budget.
+- **Optional Tensor Core linears:** exception-safe replacement of supported
+  Qwen2 linear forwards, retaining FP32 parameters and tied weights. TF32x3 is
+  established Triton arithmetic, not a newly invented numerical method. The
+  prefix tree shares work within a call; it does not reuse a prompt cache
+  across independently timed calls.
 - **Full-vocabulary requested-token logprobs:** Torch log-softmax, centered
   logsumexp, and cross-entropy controls, plus an optional three-stage Triton
   reduction. Every vocabulary logit remains in the denominator. The Triton
@@ -70,11 +96,20 @@ It contains no model weights, benchmark measurements, or invented model scores.
 Run its numerical use on Spark under the project protocol.
 
 Model scoring defaults to `method="full"`. Select `cached` or `tree` explicitly
-only for research diagnostics: the tree population-wide numeric gate failed for
-one 3B input. After the completed artifact audits, the release changed only this
-default dispatch parameter; all measured study arms already passed their method
-explicitly. [Release validation](docs/RELEASE_VALIDATION.md) preserves the exact
-one-line difference and the original experiment snapshots.
+when accepting the documented numerical limits. The original tree population
+gate failed for one 3B input; its record is retained. [Release validation](docs/RELEASE_VALIDATION.md)
+preserves the original one-line default correction and experiment snapshots.
+The new example chooses its method explicitly and enables approximate linears
+only with `--tensor-core`:
+
+~~~bash
+PYTHONPATH=src .venv/bin/python examples/score_with_shared_prefixes.py \
+  --model models/Qwen2.5-3B-Instruct --input examples/score_request.json \
+  --method tree --tensor-core
+~~~
+
+The example scores caller-supplied candidates; it does not generate them or
+read labels. New-input numerical fidelity is not certified by this study.
 
 ## Experimental scope
 
@@ -88,7 +123,8 @@ rendering. There is no hosted model API or training stage.
 | Models | Public revision-pinned Qwen2.5-3B-Instruct and Qwen2.5-1.5B-Instruct |
 | Candidate generation | BF16, SDPA, batch size 8; four primary samples plus separately reported controls |
 | Task-quality scoring | Full-prompt FP32 reference with Torch LSE; eager attention and TF32 disabled |
-| Cache/tree scope | Whole-population numerical diagnostics; no accepted cache/tree speed result |
+| Original cache/tree scope | Whole-population diagnostics; no accepted strict cache/tree speed result |
+| Approximate follow-up | Whole-population score/decision audit; six paired blocks on eight frozen test families per model, compared with native full, cached and tree controls |
 | Systems comparison | Same full FP32 backbone with Torch log-softmax, LSE, native CE, or Triton normalization |
 | Full-Triton audit | Stored full-reference token arrays, batch 8, head chunk 32; 3e-5-nat per-token gate over the frozen population |
 | Inputs | Pinned BFCL v4 Python-simple and live-simple inputs; one function with two/three required flat scalar arguments |
@@ -203,6 +239,43 @@ lower bound on recorded host-stage wall time, not pure GPU-busy time or proof
 of complete budget compliance. Table-certificate expansion counts are not
 model forward passes saved. The release must retain these distinctions.
 
+### Complete-score acceleration follow-up
+
+The user subsequently allowed small numerical errors. Separate prospective
+protocols freeze maximum token error at 0.01 nats, pooled mean error at 0.0005,
+maximum complete-sequence error at 0.1, and at least 99% agreement for each
+decision rule and their joint agreement. All earlier strict failures remain
+failed under their original limits.
+
+| Complete score control / optimized tree + TF32x3 | Qwen2.5-3B | Qwen2.5-1.5B |
+| --- | ---: | ---: |
+| Independent IEEE full prompt | **7.9520×** | **6.2756×** |
+| IEEE prompt cache | **2.1549×** | **1.9360×** |
+| Same-structure IEEE prefix tree | **1.4743×** | **1.5074×** |
+
+Each reported value is the median of six paired ABBA/BAAB block ratios over
+eight input-only frozen held-out families. Every timing window recomputes the
+prompt and includes tokenization, planning, packing, model work, score extraction
+and aggregation. First calls and compilation are recorded separately.
+All 144 windows, block ranges, descriptive bootstrap intervals, source/model
+hashes, per-item token arrays, decision margins, zero pools and retired attempts
+are retained in the [complete report](evidence/acceleration/RESULTS.md).
+
+![All six complete-score block ratios](evidence/acceleration/paired_speed_ratios.png)
+
+There is no new task-quality or generation/serving-throughput result. The
+FP32-tree control isolates the contribution of approximate linear arithmetic;
+the full-prompt comparison includes the benefit of sharing prefix work.
+
+[Release validation](evidence/acceleration/RELEASE_VALIDATION.json) independently
+checks all 1,727 archive members against retained originals, including 1,576
+byte-preserved scientific JSON/JSONL files. Recorded distinct follow-up process
+intervals total **1475.316 seconds**, including retired discoveries. This is a
+lower bound: two graph smoke runs lack a complete process interval, and tests,
+transfer and other unrecorded overhead are excluded. The original study's
+3161.201-second component lower bound is reported separately. Nested first-call
+and timing-window durations are not added again.
+
 ## Installation and reproduction
 
 Python **3.12 or later** is required. Core parsing, family aggregation, and
@@ -221,7 +294,8 @@ wheel. The pinned study metadata records Python 3.12.3, PyTorch
 The runtime/CUDA/test extras in [pyproject.toml](pyproject.toml) declare these versions;
 `metadata/runtime.json` and each run's receipts identify the actual environment.
 The completed analysis used SciPy 1.18.0 and Matplotlib 3.10.3; model asset
-transfer used Hugging Face Hub 1.28.0. All 230 tests ran on Spark.
+transfer used Hugging Face Hub 1.28.0. The original 230 tests and the expanded
+299-test acceleration suite ran on Spark.
 
 Follow [REPRODUCE.md](docs/REPRODUCE.md) for pinned downloads, checkpoint
 verification, input freezing, correctness gates, candidate generation, ranking,

@@ -1,0 +1,55 @@
+{
+  "execution": "Spark CPU only; no model or CUDA workload",
+  "archive_sha256": "2670169146b622da3421fcc6f3824579365c8b3255ab00cc26d7a5645e99e5f2",
+  "archive_members_verified_against_retained_originals": 1727,
+  "scientific_json_files_byte_preserved": 1576,
+  "independent_analysis_sha256": "7a4722f49b5928c7e2a26fc52da67762776c68effc95ebb5d488b078b1c3e035",
+  "combined_confirmation_accepted": true,
+  "followup_recorded_process_intervals": [
+    {
+      "run": "full_scoring_discovery_3b_20261013_v1",
+      "seconds": 141.19810294616036,
+      "source": "runs/full_scoring_discovery_3b_20261013_v1/complete.json"
+    },
+    {
+      "run": "tensorlinear_discovery_3b_20261013_v1",
+      "seconds": 70.26190751697868,
+      "source": "runs/tensorlinear_discovery_3b_20261013_v1/complete.json"
+    },
+    {
+      "run": "graph_scoring_discovery_3b_20261013_v1",
+      "seconds": 83.63146791793406,
+      "source": "runs/graph_scoring_discovery_3b_20261013_v1/complete.json"
+    },
+    {
+      "run": "approximate_discovery_3b_20261013_v1",
+      "seconds": 211.47203468182124,
+      "source": "runs/approximate_discovery_3b_20261013_v1/complete.json"
+    },
+    {
+      "run": "prefix_approximate_discovery_3b_20261013_v1",
+      "seconds": 50.75266453297809,
+      "source": "runs/prefix_approximate_discovery_3b_20261013_v1/complete.json"
+    },
+    {
+      "run": "prefix_approximate_confirmation_3b_20261013_v1",
+      "seconds": 612.2231061810162,
+      "source": "runs/prefix_approximate_confirmation_3b_20261013_v1/complete.json"
+    },
+    {
+      "run": "prefix_approximate_confirmation_1p5b_20261013_v1",
+      "seconds": 305.77633825386874,
+      "source": "runs/prefix_approximate_confirmation_1p5b_20261013_v1/complete.json"
+    }
+  ],
+  "followup_recorded_process_interval_subtotal_seconds": 1475.3156220307574,
+  "followup_runs_without_recorded_complete_process_interval": [
+    "graph_runtime_smoke_v1",
+    "graph_runtime_smoke_v2"
+  ],
+  "cost_scope": "Lower bound of explicitly recorded, distinct follow-up process intervals, including retired attempts. Excludes original study, tests, model transfer, unrecorded work and overhead. Nested first-call/window durations are not added again; not pure GPU-busy time.",
+  "original_study_measured_component_lower_bound_seconds": 3161.201,
+  "unit_suite": "299 passed in logs/unit_acceleration_final_v1.log",
+  "example_smoke": "logs/example_prefix_score_v1.json; runtime-only demonstration, no new performance or fidelity result",
+  "source_sha256": "a1bfc639db2afbe673a7b47c2bbbecf34b262fc90cbcdec6ce62743c361ea157"
+}

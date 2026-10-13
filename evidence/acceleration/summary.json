@@ -1,0 +1,39 @@
+{
+  "models": [
+    {
+      "model": "Qwen2.5-3B-Instruct",
+      "ratios": {
+        "native": 7.952016288666396,
+        "cached": 2.154877343302614,
+        "structure": 1.4742925886596254
+      },
+      "fidelity": {
+        "scored_records": 119,
+        "zero_family": 0,
+        "maximum_token_error": 0.001373291015625,
+        "mean_absolute_token_error": 7.775342005734575e-06,
+        "maximum_sequence_error": 0.0014944464496409182,
+        "joint_all_controls_agreement": 1.0
+      }
+    },
+    {
+      "model": "Qwen2.5-1.5B-Instruct",
+      "ratios": {
+        "native": 6.275604469416521,
+        "cached": 1.9360225305889227,
+        "structure": 1.5073897991382756
+      },
+      "fidelity": {
+        "scored_records": 103,
+        "zero_family": 16,
+        "maximum_token_error": 0.00013875961303710938,
+        "mean_absolute_token_error": 2.0709910309940656e-06,
+        "maximum_sequence_error": 0.0001590881155379975,
+        "joint_all_controls_agreement": 1.0
+      }
+    }
+  ],
+  "tests": 299,
+  "selected_discovery_plus_confirmation_wall_seconds": 968.752108967863,
+  "complete_score_stage_only": true
+}

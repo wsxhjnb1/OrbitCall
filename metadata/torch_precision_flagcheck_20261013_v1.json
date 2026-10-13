@@ -1,0 +1,106 @@
+{
+  "checks": {
+    "cuda_never_initialized": true,
+    "legacy_policy_full_snapshot_restored": true,
+    "native_control_full_snapshot_restored": true
+  },
+  "kind": "cpu_only_torch_precision_policy_roundtrip",
+  "observations": [
+    {
+      "flags": {
+        "cuda_allow_tf32": false,
+        "cuda_initialized": false,
+        "cuda_matmul_fp32_precision": "none",
+        "cudnn_allow_tf32": true,
+        "cudnn_conv_fp32_precision": "tf32",
+        "cudnn_fp32_precision": "none",
+        "cudnn_rnn_fp32_precision": "tf32",
+        "legacy_matmul_precision": "highest",
+        "mkldnn_matmul_fp32_precision": "none"
+      },
+      "label": "fresh_process"
+    },
+    {
+      "flags": {
+        "cuda_allow_tf32": false,
+        "cuda_initialized": false,
+        "cuda_matmul_fp32_precision": "ieee",
+        "cudnn_allow_tf32": true,
+        "cudnn_conv_fp32_precision": "tf32",
+        "cudnn_fp32_precision": "none",
+        "cudnn_rnn_fp32_precision": "tf32",
+        "legacy_matmul_precision": "highest",
+        "mkldnn_matmul_fp32_precision": "ieee"
+      },
+      "label": "set_highest"
+    },
+    {
+      "flags": {
+        "cuda_allow_tf32": true,
+        "cuda_initialized": false,
+        "cuda_matmul_fp32_precision": "tf32",
+        "cudnn_allow_tf32": true,
+        "cudnn_conv_fp32_precision": "tf32",
+        "cudnn_fp32_precision": "none",
+        "cudnn_rnn_fp32_precision": "tf32",
+        "legacy_matmul_precision": "high",
+        "mkldnn_matmul_fp32_precision": "tf32"
+      },
+      "label": "set_high"
+    },
+    {
+      "flags": {
+        "cuda_allow_tf32": false,
+        "cuda_initialized": false,
+        "cuda_matmul_fp32_precision": "none",
+        "cudnn_allow_tf32": true,
+        "cudnn_conv_fp32_precision": "tf32",
+        "cudnn_fp32_precision": "none",
+        "cudnn_rnn_fp32_precision": "tf32",
+        "legacy_matmul_precision": "highest",
+        "mkldnn_matmul_fp32_precision": "none"
+      },
+      "label": "restored_after_legacy_policy"
+    },
+    {
+      "flags": {
+        "cuda_allow_tf32": true,
+        "cuda_initialized": false,
+        "cuda_matmul_fp32_precision": "tf32",
+        "cudnn_allow_tf32": false,
+        "cudnn_conv_fp32_precision": "none",
+        "cudnn_fp32_precision": "none",
+        "cudnn_rnn_fp32_precision": "none",
+        "legacy_matmul_precision": "high",
+        "mkldnn_matmul_fp32_precision": "tf32"
+      },
+      "label": "native_control_inside"
+    },
+    {
+      "flags": {
+        "cuda_allow_tf32": false,
+        "cuda_initialized": false,
+        "cuda_matmul_fp32_precision": "none",
+        "cudnn_allow_tf32": true,
+        "cudnn_conv_fp32_precision": "tf32",
+        "cudnn_fp32_precision": "none",
+        "cudnn_rnn_fp32_precision": "tf32",
+        "legacy_matmul_precision": "highest",
+        "mkldnn_matmul_fp32_precision": "none"
+      },
+      "label": "restored_after_native_control"
+    }
+  ],
+  "recorded_utc": "2026-10-13T04:17:58.418708+00:00",
+  "runtime": {
+    "machine": "aarch64",
+    "platform": "Linux",
+    "python": "3.12.3",
+    "torch": "2.13.0+cu130",
+    "torch_cuda_build": "13.0"
+  },
+  "scope": "Configuration/restoration only; no tensors, checkpoint, CUDA dispatch or timing",
+  "source_filename": "torch_precision_flagcheck_source.py",
+  "source_sha256": "99cbfb5bb68c41fe37cd022677574e55de700c24e7b0e7a0575d2e8b76be7fdc",
+  "valid": true
+}
