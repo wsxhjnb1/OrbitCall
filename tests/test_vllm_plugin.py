@@ -61,9 +61,11 @@ class Model:
     def __init__(self):
         self.calls = []
         self.input_layouts = []
+        self.input_dtypes = []
         self.return_none = False
 
     def compute_logits(self, hidden):
+        self.input_dtypes.append(hidden.dtype)
         self.input_layouts.append(dict(shape=tuple(hidden.shape), stride=tuple(hidden.stride()),
                                        storage_offset=hidden.storage_offset(), data_ptr=hidden.data_ptr()))
         self.calls.append(hidden.clone())
@@ -611,8 +613,8 @@ def test_runner_hook_installation_is_idempotent():
     assert Runner._get_prompt_logprobs_dict is original
 
 
-def attach_stock_head(runner, saved=torch.bfloat16):
-    runner.model.lm_head = SimpleNamespace(weight=torch.empty((1, 1), dtype=torch.bfloat16))
+def attach_stock_head(runner, saved=torch.bfloat16, *, dtype=torch.bfloat16):
+    runner.model.lm_head = SimpleNamespace(weight=torch.empty((1, 1), dtype=dtype))
     runner.model.logits_processor = SimpleNamespace(head_dtype=saved)
 
 
@@ -753,30 +755,38 @@ def test_native_shape_mode_requires_causal_start_cache_bypass_and_no_head_marker
             plugin._score_start(sampling, len(PROMPT))
 
 
-def test_native_shape_projects_full_native_view_before_cropping_logits():
-    backing = torch.empty((10, 14), dtype=torch.bfloat16)
+@pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16])
+@pytest.mark.parametrize("head_dtype_is_none", [False, True])
+def test_native_shape_projects_full_native_view_before_cropping_logits(dtype, head_dtype_is_none):
+    backing = torch.empty((10, 14), dtype=dtype)
     hidden = backing[2:8, ::2]
-    hidden.copy_(states().to(torch.bfloat16))
+    hidden.copy_(states().to(dtype))
     runner = runner_class()({"score": native_shape_request()})
-    attach_stock_head(runner)
+    runner.model_config.dtype = dtype
+    saved = None if head_dtype_is_none else dtype
+    attach_stock_head(runner, saved, dtype=dtype)
     output = runner._get_prompt_logprobs_dict(hidden, {"score": len(PROMPT)})["score"]
     native_view = hidden[:len(PROMPT) - 1]
     assert runner.model.input_layouts == [dict(
         shape=tuple(native_view.shape), stride=tuple(native_view.stride()),
         storage_offset=native_view.storage_offset(), data_ptr=native_view.data_ptr())]
     torch.testing.assert_close(runner.model.calls[0], native_view, rtol=0, atol=0)
+    assert runner.model.input_dtypes == [dtype]
     expected = torch.log_softmax(hidden.float(), dim=-1)[
         torch.arange(2, 5), torch.tensor(PROMPT[3:])]
     torch.testing.assert_close(output.logprobs[:, 0], expected, rtol=0, atol=0)
     assert output.logprob_token_ids[:, 0].tolist() == PROMPT[3:]
     assert runner.sampler.normalized_shapes == [(3, hidden.shape[1])]
-    assert runner.model.logits_processor.head_dtype == torch.bfloat16
+    assert runner.model.logits_processor.head_dtype is saved
+    assert runner.model.lm_head.weight.dtype == dtype
 
 
-def test_native_shape_keeps_prefix_only_head_call_and_native_equality_defer():
-    req, hidden = native_shape_request(), states().to(torch.bfloat16)
+@pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16])
+def test_native_shape_keeps_prefix_only_head_call_and_native_equality_defer(dtype):
+    req, hidden = native_shape_request(), states().to(dtype)
     runner = runner_class()({"score": req})
-    attach_stock_head(runner)
+    runner.model_config.dtype = dtype
+    attach_stock_head(runner, dtype, dtype=dtype)
     assert runner._get_prompt_logprobs_dict(hidden[:2], {"score": 2}) == {}
     assert [layout["shape"] for layout in runner.model.input_layouts] == [(2, hidden.shape[1])]
     assert not runner.sampler.normalized_shapes and not runner.syncs
@@ -790,20 +800,24 @@ def test_native_shape_keeps_prefix_only_head_call_and_native_equality_defer():
     assert [layout["shape"] for layout in runner.model.input_layouts] == [
         (2, hidden.shape[1]), (3, hidden.shape[1])]
     assert runner.sampler.normalized_shapes == [(3, hidden.shape[1])]
+    assert runner.model.input_dtypes == [dtype, dtype]
+    assert runner.model.logits_processor.head_dtype == dtype
     assert output.logprob_token_ids[:, 0].tolist() == PROMPT[3:]
     assert output.logprob_token_ids[-1, 0].item() == EOS
     assert runner.syncs == 1 and not runner.num_prompt_logprobs
 
 
-def test_native_shape_mixed_requests_preserve_native_result_and_full_head_offset():
+@pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16])
+def test_native_shape_mixed_requests_preserve_native_result_and_full_head_offset(dtype):
     native = request(prompt=[1, EOS], extra_args=None)
     runner = runner_class()({"native": native, "score": native_shape_request()})
-    attach_stock_head(runner)
+    runner.model_config.dtype = dtype
+    attach_stock_head(runner, dtype, dtype=dtype)
     runner.query_start_loc.np = [0, 2]
     sentinel = object()
     runner.native_output = {"native": sentinel}
     runner.native_completed = {"native"}
-    hidden = torch.cat((states()[:2], states())).to(torch.bfloat16)
+    hidden = torch.cat((states()[:2], states())).to(dtype)
     output = runner._get_prompt_logprobs_dict(hidden, {"native": 2, "score": len(PROMPT)})
     native_view = hidden[2:7]
     assert runner.original_calls[-1][0] == ("native",)
@@ -812,6 +826,8 @@ def test_native_shape_mixed_requests_preserve_native_result_and_full_head_offset
         shape=tuple(native_view.shape), stride=tuple(native_view.stride()),
         storage_offset=native_view.storage_offset(), data_ptr=native_view.data_ptr())]
     torch.testing.assert_close(runner.model.calls[0], native_view, rtol=0, atol=0)
+    assert runner.model.input_dtypes == [dtype]
+    assert runner.model.logits_processor.head_dtype == dtype
     assert output["score"].logprob_token_ids[:, 0].tolist() == PROMPT[3:]
     assert not runner.num_prompt_logprobs
 
@@ -824,3 +840,69 @@ def test_native_shape_rejects_none_logits_even_for_prefix_only_chunk():
         runner._get_prompt_logprobs_dict(states()[:2].to(torch.bfloat16), {"score": 2})
     assert [layout["shape"] for layout in runner.model.input_layouts] == [(2, states().shape[1])]
     assert not runner.sampler.normalized_shapes and not runner.syncs
+
+
+@pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16])
+@pytest.mark.parametrize("field", ["config", "hidden", "weight", "head_output", "head_output_float32", "missing_head"])
+def test_native_shape_dtype_mismatch_fails_before_runner_or_request_mutation(dtype, field):
+    req = native_shape_request()
+    runner = runner_class()({"native": request(extra_args=None), "score": req})
+    runner.model_config.dtype = dtype
+    attach_stock_head(runner, dtype, dtype=dtype)
+    hidden = states().to(dtype)
+    other = torch.bfloat16 if dtype == torch.float16 else torch.float16
+    if field == "config":
+        runner.model_config.dtype = other
+    elif field == "hidden":
+        hidden = hidden.to(other)
+    elif field == "weight":
+        runner.model.lm_head.weight = runner.model.lm_head.weight.to(other)
+    elif field == "head_output":
+        runner.model.logits_processor.head_dtype = other
+    elif field == "head_output_float32":
+        runner.model.logits_processor.head_dtype = torch.float32
+    else:
+        del runner.model.lm_head
+    tracked = runner.num_prompt_logprobs.copy()
+    with pytest.raises(RuntimeError, match="matching native FP16/BF16"):
+        runner._get_prompt_logprobs_dict(hidden, {"native": 0, "score": len(PROMPT)})
+    assert runner.num_prompt_logprobs == tracked
+    assert req.in_progress_prompt_logprobs_cpu is None
+    assert not hasattr(req, "_orbitcall_written_until")
+    assert not runner.original_calls and not runner.model.calls and not runner.syncs
+
+
+@pytest.mark.parametrize("dtype", [torch.float32, torch.float64, torch.int8])
+def test_native_shape_rejects_unsupported_model_precision_before_mutation(dtype):
+    req = native_shape_request()
+    runner = runner_class()({"score": req})
+    runner.model_config.dtype = dtype
+    attach_stock_head(runner)
+    with pytest.raises(RuntimeError, match="native FP16/BF16"):
+        runner._get_prompt_logprobs_dict(states(), {"score": len(PROMPT)})
+    assert runner.num_prompt_logprobs == {"score": 0}
+    assert req.in_progress_prompt_logprobs_cpu is None
+    assert not runner.original_calls and not runner.model.calls
+
+
+def test_fp16_does_not_enable_the_old_suffix_development_path():
+    req = request()
+    runner = runner_class()({"score": req})
+    runner.model_config.dtype = torch.float16
+    attach_stock_head(runner, torch.float16, dtype=torch.float16)
+    with pytest.raises(RuntimeError):
+        runner._get_prompt_logprobs_dict(states().to(torch.float16), {"score": len(PROMPT)})
+    assert runner.num_prompt_logprobs == {"score": 0}
+    assert not runner.original_calls and not runner.model.calls
+
+
+def test_fp16_shape_cannot_silently_include_old_marked_development_requests():
+    req = native_shape_request()
+    runner = runner_class()({"shape": req, "legacy": request()})
+    runner.model_config.dtype = torch.float16
+    attach_stock_head(runner, torch.float16, dtype=torch.float16)
+    with pytest.raises(RuntimeError, match="every marked request"):
+        runner._get_prompt_logprobs_dict(states().to(torch.float16), {"shape": 6, "legacy": 6})
+    assert set(runner.num_prompt_logprobs) == {"shape", "legacy"}
+    assert req.in_progress_prompt_logprobs_cpu is None
+    assert not runner.original_calls and not runner.model.calls

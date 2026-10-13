@@ -1,7 +1,7 @@
-# Native BF16 vLLM Agent reproduction
+# Model-native vLLM Agent use and benchmark reproduction
 
 The released mode is **native_shape_suffix**, not the retained failed APC/FP32
-development modes. It keeps the full native BF16 projection and crops only
+development modes. It keeps the full native model projection and crops only
 downstream scoring work. Read the [frozen protocol](VLLM_AGENT_SHAPE_PROTOCOL.md)
 and [results](../evidence/vllm_agent/RESULTS.md) before interpreting timings.
 
@@ -31,12 +31,28 @@ The demo runs two development fixtures through actual candidate generation,
 strict parsing, both tools, observation feedback and final generation. It
 retains all text, token IDs, scores, calls and errors. It does not evaluate
 gold answers or represent a speed benchmark. Use `native_default` for stock
-BF16 scoring. Outputs must use a fresh file name.
+full scoring. Outputs must use a fresh file name.
+
+The portable demo defaults to `--dtype auto`, allowing vLLM to resolve the model
+dtype. Use `--dtype float16` or `--dtype bfloat16` for an explicit override.
+The output records both the requested and resolved dtype. The plugin checks
+the actual model configuration, hidden states, LM-head weights and native
+head-output policy agree, without converting any of them. The released
+native-shape path supports FP16 and BF16; quantized and other execution paths
+remain outside this adapter's contract. See the separate
+[compatibility protocol](VLLM_DTYPE_PROTOCOL.md).
+The pinned 1.5B development check passed for auto and explicit float16, including
+candidate scores, mixed requests and both complete two-round Agent traces.
+See [retained results](../evidence/dtype_compatibility/RESULTS.md).
+
+The published six-block speed ratios were measured under the original BF16
+configuration. They are retained historical measurements and are not an FP16
+performance claim. The frozen benchmark drivers retain their original options.
 
 The general-plugin registration is opt-in. The example/study initialization
 sets ORBITCALL_VLLM_SCORING=1, VLLM_USE_V2_MODEL_RUNNER=0 and
 VLLM_PLUGINS=orbitcall_scoring before constructing the engine. The validated
-path uses synchronous legacy-runner scheduling, nonquantized BF16 Qwen2,
+path uses synchronous legacy-runner scheduling, nonquantized Qwen2,
 ordinary single-group full-attention KV and no LoRA/speculative/KV connector.
 Normal vLLM generation, torch.compile and CUDA Graphs remain enabled.
 

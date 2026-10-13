@@ -15,12 +15,13 @@ extra_args={"orbitcall_score_start": S}, where hidden row S predicts input
 token S+1. Returned prompt_logprobs has S+1 leading None entries followed by
 every requested suffix token's native raw logprob. None means unscored.
 Untagged requests delegate to the original methods without changing settings.
-Only the studied BF16, non-sliding Qwen2, single-cache-group path is supported.
+The native-shape path supports matching FP16 or BF16, non-sliding Qwen2,
+single-cache-group runtimes. Historical development results cover BF16 only.
 An optional orbitcall_score_logit_dtype="float32" request marker temporarily
 selects vLLM's native FP32-output LM-head path during prompt scoring. Its BF16
 operands and backbone are unchanged; generation outside this hook is unchanged.
 The separate orbitcall_score_mode="native_shape_suffix" marker preserves the
-entire stock BF16 prompt LM-head projection and crops logits only afterward.
+entire stock FP16/BF16 prompt LM-head projection and crops logits only afterward.
 It forbids prefix-cache reads and the FP32-head marker. Prefix-only chunks
 still run the full native head; only normalization, gathering and return work
 are omitted for their unrequested rows.
@@ -207,25 +208,29 @@ def _install_runner_hook(runner_cls, logprobs_tensors_cls, async_h2d):
         import torch
 
         config = self.model_config
-        if (config.dtype != torch.bfloat16 or config.logprobs_mode != "raw_logprobs"
+        native_shape = any(mode == "native_shape_suffix" for mode in modes.values())
+        supported_dtypes = (torch.float16, torch.bfloat16) if native_shape else (torch.bfloat16,)
+        if (config.dtype not in supported_dtypes or config.logprobs_mode != "raw_logprobs"
                 or getattr(config.hf_config, "model_type", None) != "qwen2"
                 or getattr(self.scheduler_config, "async_scheduling", False)
                 or getattr(self, "speculative_config", None) is not None
                 or getattr(self.cache_config, "kv_sharing_fast_prefill", False)
                 or getattr(self.cache_config, "cache_dtype", "auto") != "auto"
                 or getattr(config, "quantization", None) is not None):
-            raise RuntimeError("OrbitCall supports BF16/raw-logprob Qwen2, synchronous V1 "
+            raise RuntimeError("OrbitCall supports native FP16/BF16 raw-logprob Qwen2, synchronous V1 "
                                "scheduling, without speculative/KV-sharing fast prefill")
-        if any(mode == "native_shape_suffix" for mode in modes.values()):
+        if config.dtype == torch.float16 and any(mode != "native_shape_suffix" for mode in modes.values()):
+            raise RuntimeError("FP16 marked scoring requires native_shape_suffix for every marked request")
+        if native_shape:
             processor = getattr(self.model, "logits_processor", None)
             head = getattr(self.model, "lm_head", None)
-            if (hidden_states.dtype != torch.bfloat16
+            if (hidden_states.dtype != config.dtype
                     or processor is None or not hasattr(processor, "head_dtype")
-                    or processor.head_dtype not in (None, torch.bfloat16)
+                    or processor.head_dtype not in (None, config.dtype)
                     or getattr(getattr(head, "weight", None), "dtype", None)
-                    != torch.bfloat16):
-                raise RuntimeError("native_shape_suffix requires stock BF16 hidden "
-                                   "states and LM-head output")
+                    != config.dtype):
+                raise RuntimeError("native_shape_suffix requires matching native FP16/BF16 "
+                                   "model, hidden states, LM-head weights and output dtype")
 
         # Native requests retain the original buffer, cleanup and sync behavior.
         # The legacy runner executes this method serially; no scheduler state

@@ -1,8 +1,10 @@
-"""BF16 vLLM finite-family scoring with explicit request-scoped suffix reuse.
+"""Model-native vLLM finite-family scoring with request-scoped suffix reuse.
 
 No Torch model sidecar is used. Native model/head/attention/logprob arithmetic
 is retained. Only the integration plugin changes which causal rows are scored
 and the permitted prefix-cache read boundary.
+The released native_shape_suffix mode follows the engine's resolved model
+dtype. The retained experimental FP32-output arms keep their original limits.
 """
 
 from __future__ import annotations

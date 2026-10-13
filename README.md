@@ -4,21 +4,22 @@
 
 OrbitCall is an opt-in vLLM plugin for CUDA GPUs.
 Generate candidates, score their finite JSON key-order families, execute a tool,
-and use its actual observation in the next round. Native BF16 throughout.
+and use its actual observation in the next round. The plugin follows the
+loaded model's native execution dtype; the demo defaults to `--dtype auto`.
 
-![BF16 vLLM Agent loop: generate, validate, score, select, execute and observe](docs/assets/agent_loop_illustrated.png)
+![vLLM Agent loop: generate, validate, score, select, execute and observe](docs/assets/agent_loop_illustrated.png)
 
 *Two tool rounds use actual observations, followed by a generated final answer.*
 
 ## Trim the scoring overhead
 
-The vLLM0.29 plugin preserves the **full native BF16 LM-head projection**.
+The vLLM0.29 plugin preserves the **full native LM-head projection**.
 It then normalizes, ranks and transfers only the required suffix rows,
 retaining full-vocabulary probabilities and every JSON/EOS token.
 
-![Full native BF16 projection, then suffix predictor rows with the entire vocabulary](docs/assets/native_suffix_illustrated.png)
+![Full native projection, then suffix predictor rows with the entire vocabulary](docs/assets/native_suffix_illustrated.png)
 
-*Same BF16 backbone and full LM-head projection; fewer rows for probability processing and transfer, retaining P−1 and the row predicting EOS.*
+*Same backbone and full LM-head projection; fewer rows for probability processing and transfer, retaining P−1 and the row predicting EOS.*
 
 Conceptual illustrations generated with ChatGPT; cards and matrices are schematic.
 [Illustration prompts](docs/ILLUSTRATION_PROMPTS.md)
@@ -55,6 +56,11 @@ python -m pip install --no-deps --no-build-isolation -e .
 PYTHONPATH=src python examples/vllm_agent.py \
   --model models/Qwen2.5-1.5B-Instruct --output demo_agent.json
 ```
+
+Use `--dtype float16` or `--dtype bfloat16` to override the model default.
+The adapter preserves the dtype selected by vLLM without recasting model
+weights or hidden states. FP16 and automatic selection passed the separate
+development compatibility check. [Compatibility evidence](evidence/dtype_compatibility/RESULTS.md)
 
 [Setup and reproduction](docs/VLLM_REPRODUCE.md) · [Theory](docs/THEORY.md) ·
 [Prior work](docs/RELATED_WORK.md) · [Historical FP32 study](evidence/acceleration/RESULTS.md)
