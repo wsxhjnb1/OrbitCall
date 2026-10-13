@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="title desc">
+  <title id="title">OrbitCall inside an Agent loop</title>
+  <desc id="desc">Conceptual integration. A request and tool schemas enter BF16 vLLM candidate generation. Calls are parsed and deduplicated, their finite JSON families are scored, one call is selected and executed, and the real observation returns to the context. Agent task outcomes and latency require separate measurement.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9 Z" fill="#65738b"/></marker>
+    <marker id="tealArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 1 1 L 9 5 L 1 9 Z" fill="#0c827f"/></marker>
+    <style>
+      text { font-family: Inter, 'Segoe UI', Arial, sans-serif; }
+      .kicker { font-size: 15px; font-weight: 700; letter-spacing: 2px; fill: #0c827f; }
+      .heading { font-size: 39px; font-weight: 750; fill: #14233b; }
+      .sub { font-size: 20px; fill: #627087; }
+      .title { font-size: 25px; font-weight: 700; fill: #14233b; }
+      .body { font-size: 19px; fill: #536178; }
+      .step { font-size: 14px; font-weight: 700; letter-spacing: 1.4px; fill: #687993; }
+      .flow { fill: none; stroke: #65738b; stroke-width: 2.5; marker-end: url(#arrow); }
+      .pill { font-size: 16px; font-weight: 600; }
+    </style>
+  </defs>
+  <rect width="1440" height="820" rx="28" fill="#f5f8fc"/>
+  <rect x="1" y="1" width="1438" height="818" rx="27" fill="none" stroke="#dce4ee"/>
+  <text class="kicker" x="64" y="61">ORBITCALL / CONCEPTUAL INTEGRATION</text>
+  <text class="heading" x="64" y="113">Candidate selection inside a real tool loop</text>
+  <text class="sub" x="64" y="151">Generate calls, score their spellings, execute one, then learn from the observation.</text>
+
+  <rect x="64" y="205" width="242" height="176" rx="18" fill="#ffffff" stroke="#d4deeb"/>
+  <text class="step" x="87" y="239">CONTEXT</text>
+  <text class="title" x="87" y="279">Request + tools</text>
+  <text class="body" x="87" y="316">Instructions, schemas,</text>
+  <text class="body" x="87" y="343">and earlier observations</text>
+
+  <path class="flow" d="M 306 294 H 341"/>
+  <rect x="350" y="205" width="276" height="176" rx="18" fill="#edf3ff" stroke="#b8ccef"/>
+  <text class="step" x="375" y="239">GENERATE</text>
+  <text class="title" x="375" y="279">vLLM · BF16</text>
+  <text class="body" x="375" y="316">Produce candidate calls</text>
+  <text class="body" x="375" y="343">under a fixed budget</text>
+
+  <path class="flow" d="M 626 294 H 661"/>
+  <rect x="670" y="205" width="286" height="176" rx="18" fill="#ffffff" stroke="#d4deeb"/>
+  <text class="step" x="695" y="239">PREPARE</text>
+  <text class="title" x="695" y="279">Parse + deduplicate</text>
+  <text class="body" x="695" y="316">Retain valid candidates</text>
+  <text class="body" x="695" y="343">Record invalid / empty pools</text>
+
+  <path class="flow" d="M 956 294 H 991"/>
+  <rect x="1000" y="205" width="376" height="176" rx="18" fill="#e4f5f2" stroke="#8bc8bd" stroke-width="1.5"/>
+  <text class="step" x="1027" y="239">SCORE</text>
+  <text class="title" x="1027" y="279">OrbitCall</text>
+  <text class="body" x="1027" y="316">Score finite JSON families</text>
+  <text class="body" x="1027" y="343">Keep complete sequences + EOS</text>
+
+  <path class="flow" d="M 1188 381 V 447"/>
+  <rect x="1000" y="456" width="376" height="143" rx="18" fill="#ffffff" stroke="#d4deeb"/>
+  <text class="step" x="1027" y="490">SELECT</text>
+  <text class="title" x="1027" y="527">One tool call</text>
+  <text class="body" x="1027" y="566">Apply the declared decision rule</text>
+
+  <path class="flow" d="M 1000 528 H 923"/>
+  <rect x="626" y="456" width="288" height="143" rx="18" fill="#fff4e6" stroke="#e9c798"/>
+  <text class="step" x="651" y="490">EXECUTE</text>
+  <text class="title" x="651" y="527">Run the tool</text>
+  <text class="body" x="651" y="566">Real arguments, real output</text>
+
+  <path class="flow" d="M 626 528 H 549"/>
+  <rect x="262" y="456" width="278" height="143" rx="18" fill="#e4f5f2" stroke="#8bc8bd"/>
+  <text class="step" x="287" y="490">OBSERVE</text>
+  <text class="title" x="287" y="527">Update context</text>
+  <text class="body" x="287" y="566">Continue or answer</text>
+
+  <path d="M 262 528 H 185 V 390" fill="none" stroke="#0c827f" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#tealArrow)"/>
+  <text x="72" y="433" font-size="15" font-family="Inter, 'Segoe UI', Arial, sans-serif" fill="#0c827f">Next turn</text>
+
+  <rect x="64" y="655" width="1312" height="104" rx="18" fill="#14233b"/>
+  <rect x="89" y="680" width="158" height="29" rx="14.5" fill="#24465b"/>
+  <text class="pill" x="168" y="700" text-anchor="middle" fill="#b2ece5">MEASURE BOTH</text>
+  <text x="271" y="700" font-size="22" font-weight="650" fill="#ffffff">Task completion + complete Agent latency</text>
+  <text x="89" y="735" font-size="18" fill="#b7c7db">Keep generation, scoring, tool execution, and setup costs visible. Scorer speed alone is not Agent speed.</text>
+</svg>

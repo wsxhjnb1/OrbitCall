@@ -1,0 +1,623 @@
+{
+  "format_version": 1,
+  "stage": "agent-inputs-frozen",
+  "epoch": 1791885742.5589318,
+  "answers_accessed": false,
+  "tool_execution_performed": false,
+  "model_inference_performed": false,
+  "live_gpu_identity": "NVIDIA GB10, GPU-2436ad33-655e-6ff1-a4ba-96a159b20bc4, 580.159.03",
+  "split_salt": "orbitcall-local-agent-input-only-v1",
+  "provenance": {
+    "kind": "original deterministic local test fixtures",
+    "license": "MIT",
+    "author": "Yuhao Xie / OrbitCall",
+    "external_assets": [],
+    "network_tools": false,
+    "artificial_tool_latency": false,
+    "scope": "two round-specific tools and final JSON; not an official Agent leaderboard"
+  },
+  "record_count": 48,
+  "split_counts": {
+    "test": 36,
+    "development": 12
+  },
+  "family_counts": {
+    "calendar": 24,
+    "catalog": 24
+  },
+  "group_count": 16,
+  "timing_fixture_ids": [
+    "catalog_item_01_0",
+    "catalog_item_01_1",
+    "catalog_item_01_2",
+    "catalog_item_03_0",
+    "calendar_region_1_2026_0",
+    "calendar_region_1_2026_1",
+    "calendar_region_1_2026_2",
+    "calendar_region_1_2027_0"
+  ],
+  "timing_selection_rule": "first four lexicographic test IDs within each family; no model-output eligibility filter",
+  "source_sha256": {
+    "scripts/freeze_agent_tasks.py": "608b0d351991708e575b5594d8e15c757bd62fee80afaff776a6bf0e66eb85a7",
+    "src/orbitcall/agent_tasks.py": "02f3fd59ac6a285633050ce060f8105132579a1a29da330d22d8a2c11b39f981",
+    "src/orbitcall/serialization.py": "12dacb2aa3b16f00a11afbec27e128079928122fbab8cda957c871afdc43f504"
+  },
+  "records": [
+    {
+      "id": "calendar_region_1_2026_0",
+      "family": "calendar",
+      "group_id": "calendar:region_1:2026",
+      "split": "test",
+      "input": {
+        "region": "region_1",
+        "year": 2026,
+        "start_date": "2026-01-01"
+      },
+      "request": "For the region_1 local fixture calendar in 2026, find the scheduled date starting strictly after 2026-01-01. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_1_2026_1",
+      "family": "calendar",
+      "group_id": "calendar:region_1:2026",
+      "split": "test",
+      "input": {
+        "region": "region_1",
+        "year": 2026,
+        "start_date": "2026-03-27"
+      },
+      "request": "For the region_1 local fixture calendar in 2026, find the scheduled date starting strictly after 2026-03-27. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_1_2026_2",
+      "family": "calendar",
+      "group_id": "calendar:region_1:2026",
+      "split": "test",
+      "input": {
+        "region": "region_1",
+        "year": 2026,
+        "start_date": "2026-11-20"
+      },
+      "request": "For the region_1 local fixture calendar in 2026, find the scheduled date starting strictly after 2026-11-20. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_1_2027_0",
+      "family": "calendar",
+      "group_id": "calendar:region_1:2027",
+      "split": "test",
+      "input": {
+        "region": "region_1",
+        "year": 2027,
+        "start_date": "2027-01-01"
+      },
+      "request": "For the region_1 local fixture calendar in 2027, find the scheduled date starting strictly after 2027-01-01. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_1_2027_1",
+      "family": "calendar",
+      "group_id": "calendar:region_1:2027",
+      "split": "test",
+      "input": {
+        "region": "region_1",
+        "year": 2027,
+        "start_date": "2027-03-27"
+      },
+      "request": "For the region_1 local fixture calendar in 2027, find the scheduled date starting strictly after 2027-03-27. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_1_2027_2",
+      "family": "calendar",
+      "group_id": "calendar:region_1:2027",
+      "split": "test",
+      "input": {
+        "region": "region_1",
+        "year": 2027,
+        "start_date": "2027-11-20"
+      },
+      "request": "For the region_1 local fixture calendar in 2027, find the scheduled date starting strictly after 2027-11-20. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_2_2026_0",
+      "family": "calendar",
+      "group_id": "calendar:region_2:2026",
+      "split": "development",
+      "input": {
+        "region": "region_2",
+        "year": 2026,
+        "start_date": "2026-01-01"
+      },
+      "request": "For the region_2 local fixture calendar in 2026, find the scheduled date starting strictly after 2026-01-01. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_2_2026_1",
+      "family": "calendar",
+      "group_id": "calendar:region_2:2026",
+      "split": "development",
+      "input": {
+        "region": "region_2",
+        "year": 2026,
+        "start_date": "2026-03-27"
+      },
+      "request": "For the region_2 local fixture calendar in 2026, find the scheduled date starting strictly after 2026-03-27. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_2_2026_2",
+      "family": "calendar",
+      "group_id": "calendar:region_2:2026",
+      "split": "development",
+      "input": {
+        "region": "region_2",
+        "year": 2026,
+        "start_date": "2026-11-20"
+      },
+      "request": "For the region_2 local fixture calendar in 2026, find the scheduled date starting strictly after 2026-11-20. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_2_2027_0",
+      "family": "calendar",
+      "group_id": "calendar:region_2:2027",
+      "split": "test",
+      "input": {
+        "region": "region_2",
+        "year": 2027,
+        "start_date": "2027-01-01"
+      },
+      "request": "For the region_2 local fixture calendar in 2027, find the scheduled date starting strictly after 2027-01-01. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_2_2027_1",
+      "family": "calendar",
+      "group_id": "calendar:region_2:2027",
+      "split": "test",
+      "input": {
+        "region": "region_2",
+        "year": 2027,
+        "start_date": "2027-03-27"
+      },
+      "request": "For the region_2 local fixture calendar in 2027, find the scheduled date starting strictly after 2027-03-27. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_2_2027_2",
+      "family": "calendar",
+      "group_id": "calendar:region_2:2027",
+      "split": "test",
+      "input": {
+        "region": "region_2",
+        "year": 2027,
+        "start_date": "2027-11-20"
+      },
+      "request": "For the region_2 local fixture calendar in 2027, find the scheduled date starting strictly after 2027-11-20. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_3_2026_0",
+      "family": "calendar",
+      "group_id": "calendar:region_3:2026",
+      "split": "development",
+      "input": {
+        "region": "region_3",
+        "year": 2026,
+        "start_date": "2026-01-01"
+      },
+      "request": "For the region_3 local fixture calendar in 2026, find the scheduled date starting strictly after 2026-01-01. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_3_2026_1",
+      "family": "calendar",
+      "group_id": "calendar:region_3:2026",
+      "split": "development",
+      "input": {
+        "region": "region_3",
+        "year": 2026,
+        "start_date": "2026-03-27"
+      },
+      "request": "For the region_3 local fixture calendar in 2026, find the scheduled date starting strictly after 2026-03-27. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_3_2026_2",
+      "family": "calendar",
+      "group_id": "calendar:region_3:2026",
+      "split": "development",
+      "input": {
+        "region": "region_3",
+        "year": 2026,
+        "start_date": "2026-11-20"
+      },
+      "request": "For the region_3 local fixture calendar in 2026, find the scheduled date starting strictly after 2026-11-20. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_3_2027_0",
+      "family": "calendar",
+      "group_id": "calendar:region_3:2027",
+      "split": "test",
+      "input": {
+        "region": "region_3",
+        "year": 2027,
+        "start_date": "2027-01-01"
+      },
+      "request": "For the region_3 local fixture calendar in 2027, find the scheduled date starting strictly after 2027-01-01. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_3_2027_1",
+      "family": "calendar",
+      "group_id": "calendar:region_3:2027",
+      "split": "test",
+      "input": {
+        "region": "region_3",
+        "year": 2027,
+        "start_date": "2027-03-27"
+      },
+      "request": "For the region_3 local fixture calendar in 2027, find the scheduled date starting strictly after 2027-03-27. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_3_2027_2",
+      "family": "calendar",
+      "group_id": "calendar:region_3:2027",
+      "split": "test",
+      "input": {
+        "region": "region_3",
+        "year": 2027,
+        "start_date": "2027-11-20"
+      },
+      "request": "For the region_3 local fixture calendar in 2027, find the scheduled date starting strictly after 2027-11-20. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_4_2026_0",
+      "family": "calendar",
+      "group_id": "calendar:region_4:2026",
+      "split": "test",
+      "input": {
+        "region": "region_4",
+        "year": 2026,
+        "start_date": "2026-01-01"
+      },
+      "request": "For the region_4 local fixture calendar in 2026, find the scheduled date starting strictly after 2026-01-01. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_4_2026_1",
+      "family": "calendar",
+      "group_id": "calendar:region_4:2026",
+      "split": "test",
+      "input": {
+        "region": "region_4",
+        "year": 2026,
+        "start_date": "2026-03-27"
+      },
+      "request": "For the region_4 local fixture calendar in 2026, find the scheduled date starting strictly after 2026-03-27. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_4_2026_2",
+      "family": "calendar",
+      "group_id": "calendar:region_4:2026",
+      "split": "test",
+      "input": {
+        "region": "region_4",
+        "year": 2026,
+        "start_date": "2026-11-20"
+      },
+      "request": "For the region_4 local fixture calendar in 2026, find the scheduled date starting strictly after 2026-11-20. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_4_2027_0",
+      "family": "calendar",
+      "group_id": "calendar:region_4:2027",
+      "split": "test",
+      "input": {
+        "region": "region_4",
+        "year": 2027,
+        "start_date": "2027-01-01"
+      },
+      "request": "For the region_4 local fixture calendar in 2027, find the scheduled date starting strictly after 2027-01-01. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_4_2027_1",
+      "family": "calendar",
+      "group_id": "calendar:region_4:2027",
+      "split": "test",
+      "input": {
+        "region": "region_4",
+        "year": 2027,
+        "start_date": "2027-03-27"
+      },
+      "request": "For the region_4 local fixture calendar in 2027, find the scheduled date starting strictly after 2027-03-27. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "calendar_region_4_2027_2",
+      "family": "calendar",
+      "group_id": "calendar:region_4:2027",
+      "split": "test",
+      "input": {
+        "region": "region_4",
+        "year": 2027,
+        "start_date": "2027-11-20"
+      },
+      "request": "For the region_4 local fixture calendar in 2027, find the scheduled date starting strictly after 2027-11-20. First look up its policy, then use the returned business-day lead and calendar ID to calculate the date. Finally respond with exactly {\"date\":\"YYYY-MM-DD\"}."
+    },
+    {
+      "id": "catalog_item_01_0",
+      "family": "catalog",
+      "group_id": "catalog:item_01",
+      "split": "test",
+      "input": {
+        "item_id": "item_01",
+        "store": "north",
+        "quantity": 1
+      },
+      "request": "Find the total in integer cents for 1 units of item_01 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_01_1",
+      "family": "catalog",
+      "group_id": "catalog:item_01",
+      "split": "test",
+      "input": {
+        "item_id": "item_01",
+        "store": "south",
+        "quantity": 3
+      },
+      "request": "Find the total in integer cents for 3 units of item_01 from the south fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_01_2",
+      "family": "catalog",
+      "group_id": "catalog:item_01",
+      "split": "test",
+      "input": {
+        "item_id": "item_01",
+        "store": "north",
+        "quantity": 7
+      },
+      "request": "Find the total in integer cents for 7 units of item_01 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_02_0",
+      "family": "catalog",
+      "group_id": "catalog:item_02",
+      "split": "development",
+      "input": {
+        "item_id": "item_02",
+        "store": "north",
+        "quantity": 1
+      },
+      "request": "Find the total in integer cents for 1 units of item_02 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_02_1",
+      "family": "catalog",
+      "group_id": "catalog:item_02",
+      "split": "development",
+      "input": {
+        "item_id": "item_02",
+        "store": "south",
+        "quantity": 3
+      },
+      "request": "Find the total in integer cents for 3 units of item_02 from the south fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_02_2",
+      "family": "catalog",
+      "group_id": "catalog:item_02",
+      "split": "development",
+      "input": {
+        "item_id": "item_02",
+        "store": "north",
+        "quantity": 7
+      },
+      "request": "Find the total in integer cents for 7 units of item_02 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_03_0",
+      "family": "catalog",
+      "group_id": "catalog:item_03",
+      "split": "test",
+      "input": {
+        "item_id": "item_03",
+        "store": "north",
+        "quantity": 1
+      },
+      "request": "Find the total in integer cents for 1 units of item_03 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_03_1",
+      "family": "catalog",
+      "group_id": "catalog:item_03",
+      "split": "test",
+      "input": {
+        "item_id": "item_03",
+        "store": "south",
+        "quantity": 3
+      },
+      "request": "Find the total in integer cents for 3 units of item_03 from the south fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_03_2",
+      "family": "catalog",
+      "group_id": "catalog:item_03",
+      "split": "test",
+      "input": {
+        "item_id": "item_03",
+        "store": "north",
+        "quantity": 7
+      },
+      "request": "Find the total in integer cents for 7 units of item_03 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_04_0",
+      "family": "catalog",
+      "group_id": "catalog:item_04",
+      "split": "development",
+      "input": {
+        "item_id": "item_04",
+        "store": "north",
+        "quantity": 1
+      },
+      "request": "Find the total in integer cents for 1 units of item_04 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_04_1",
+      "family": "catalog",
+      "group_id": "catalog:item_04",
+      "split": "development",
+      "input": {
+        "item_id": "item_04",
+        "store": "south",
+        "quantity": 3
+      },
+      "request": "Find the total in integer cents for 3 units of item_04 from the south fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_04_2",
+      "family": "catalog",
+      "group_id": "catalog:item_04",
+      "split": "development",
+      "input": {
+        "item_id": "item_04",
+        "store": "north",
+        "quantity": 7
+      },
+      "request": "Find the total in integer cents for 7 units of item_04 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_05_0",
+      "family": "catalog",
+      "group_id": "catalog:item_05",
+      "split": "test",
+      "input": {
+        "item_id": "item_05",
+        "store": "north",
+        "quantity": 1
+      },
+      "request": "Find the total in integer cents for 1 units of item_05 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_05_1",
+      "family": "catalog",
+      "group_id": "catalog:item_05",
+      "split": "test",
+      "input": {
+        "item_id": "item_05",
+        "store": "south",
+        "quantity": 3
+      },
+      "request": "Find the total in integer cents for 3 units of item_05 from the south fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_05_2",
+      "family": "catalog",
+      "group_id": "catalog:item_05",
+      "split": "test",
+      "input": {
+        "item_id": "item_05",
+        "store": "north",
+        "quantity": 7
+      },
+      "request": "Find the total in integer cents for 7 units of item_05 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_06_0",
+      "family": "catalog",
+      "group_id": "catalog:item_06",
+      "split": "test",
+      "input": {
+        "item_id": "item_06",
+        "store": "north",
+        "quantity": 1
+      },
+      "request": "Find the total in integer cents for 1 units of item_06 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_06_1",
+      "family": "catalog",
+      "group_id": "catalog:item_06",
+      "split": "test",
+      "input": {
+        "item_id": "item_06",
+        "store": "south",
+        "quantity": 3
+      },
+      "request": "Find the total in integer cents for 3 units of item_06 from the south fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_06_2",
+      "family": "catalog",
+      "group_id": "catalog:item_06",
+      "split": "test",
+      "input": {
+        "item_id": "item_06",
+        "store": "north",
+        "quantity": 7
+      },
+      "request": "Find the total in integer cents for 7 units of item_06 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_07_0",
+      "family": "catalog",
+      "group_id": "catalog:item_07",
+      "split": "test",
+      "input": {
+        "item_id": "item_07",
+        "store": "north",
+        "quantity": 1
+      },
+      "request": "Find the total in integer cents for 1 units of item_07 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_07_1",
+      "family": "catalog",
+      "group_id": "catalog:item_07",
+      "split": "test",
+      "input": {
+        "item_id": "item_07",
+        "store": "south",
+        "quantity": 3
+      },
+      "request": "Find the total in integer cents for 3 units of item_07 from the south fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_07_2",
+      "family": "catalog",
+      "group_id": "catalog:item_07",
+      "split": "test",
+      "input": {
+        "item_id": "item_07",
+        "store": "north",
+        "quantity": 7
+      },
+      "request": "Find the total in integer cents for 7 units of item_07 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_08_0",
+      "family": "catalog",
+      "group_id": "catalog:item_08",
+      "split": "test",
+      "input": {
+        "item_id": "item_08",
+        "store": "north",
+        "quantity": 1
+      },
+      "request": "Find the total in integer cents for 1 units of item_08 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_08_1",
+      "family": "catalog",
+      "group_id": "catalog:item_08",
+      "split": "test",
+      "input": {
+        "item_id": "item_08",
+        "store": "south",
+        "quantity": 3
+      },
+      "request": "Find the total in integer cents for 3 units of item_08 from the south fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    },
+    {
+      "id": "catalog_item_08_2",
+      "family": "catalog",
+      "group_id": "catalog:item_08",
+      "split": "test",
+      "input": {
+        "item_id": "item_08",
+        "store": "north",
+        "quantity": 7
+      },
+      "request": "Find the total in integer cents for 7 units of item_08 from the north fixture store, including its shipping fee. First look up the item/store, then calculate the order total. Finally respond with exactly {\"total_cents\":integer}."
+    }
+  ]
+}

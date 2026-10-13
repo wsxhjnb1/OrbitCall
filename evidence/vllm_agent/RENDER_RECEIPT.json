@@ -1,0 +1,40 @@
+{
+  "status": "complete",
+  "host": "NVIDIA GB10, GPU-2436ad33-655e-6ff1-a4ba-96a159b20bc4",
+  "analysis_file": "metadata/vllm_agent_shape_analysis_v1.json",
+  "analysis_sha256": "40c72261f6f3f64cb6d7dcf1ea80e09abdbe854f889ac5ef98b064f4c460c728",
+  "renderer_source_sha256": "7b5b4a7e5c46dca66200a3bb3646ce5466dcbc4a839507ca61fc4b939d464447",
+  "artifacts": {
+    "RESULTS.md": {
+      "bytes": 6426,
+      "sha256": "fd7e3b270e66690fa31f5c9cb41973bf5a82ff8cb3a6364f2282079b3c166dba"
+    },
+    "agent_vs_scoring_ratios.png": {
+      "bytes": 121481,
+      "sha256": "6592532fe41a1d6b072f531dd880cfd22844ecb3063ee5c6db09a957b86a407f"
+    },
+    "agent_vs_scoring_ratios.svg": {
+      "bytes": 21461,
+      "sha256": "d24136f7088618a1084444a4ef2d51b5d7f82cbfe1415331d0ac36b53fdc3873"
+    },
+    "independent_analysis.json": {
+      "bytes": 1839959,
+      "sha256": "40c72261f6f3f64cb6d7dcf1ea80e09abdbe854f889ac5ef98b064f4c460c728"
+    },
+    "stage_wall_times.png": {
+      "bytes": 159022,
+      "sha256": "2cac8126164647f44aa18245230c5d9dbc0937fec52d924e37089fcb162e80b3"
+    },
+    "stage_wall_times.svg": {
+      "bytes": 19655,
+      "sha256": "c1b082cd20e63a14371b4e3ff8eb58d5d557fb525171927e2fae7ddaea480127"
+    },
+    "summary.json": {
+      "bytes": 26573,
+      "sha256": "7db0016a226af742c00a41327df71a2c34eb1bd8a4a410554f8f438c4655994e"
+    }
+  },
+  "elapsed_seconds": 0.5133280239533633,
+  "model_or_reference_evaluation_performed": false,
+  "scope": "presentation of validated analysis; paired scorer ratios and stage means cross-checked; no trajectory selection"
+}

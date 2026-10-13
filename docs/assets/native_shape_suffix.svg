@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="940" viewBox="0 0 1440 940" role="img" aria-labelledby="title desc">
+  <title id="title">Native BF16 projection shape with suffix-only downstream logprob work</title>
+  <desc id="desc">The native baseline with the adapter installed and native-shape suffix scorer use the same BF16 backbone and full native vocabulary projection. The baseline normalizes all native prompt-predictor rows. The suffix scorer selects suffix predictor rows only after computing the full native projection, then normalizes over the complete vocabulary, gathers target logprobs, and transfers them. The first suffix predictor at P minus one and EOS are retained. No scoring-prefix-cache reads or FP32-output head override is used. Measured fidelity and complete Agent results are recorded in the linked study report.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 1 1 L 9 5 L 1 9 Z" fill="#687b91"/></marker>
+    <style>
+      text { font-family: Inter, 'Segoe UI', Arial, sans-serif; }
+      .kicker { font-size: 15px; font-weight: 700; letter-spacing: 2px; fill: #0c827f; }
+      .heading { font-size: 38px; font-weight: 750; fill: #14233b; }
+      .sub { font-size: 20px; fill: #627087; }
+      .panel { font-size: 24px; font-weight: 700; fill: #14233b; }
+      .label { font-size: 21px; font-weight: 650; fill: #14233b; }
+      .small { font-size: 18px; fill: #596a82; }
+      .mono { font-family: Consolas, 'Courier New', monospace; font-size: 20px; fill: #14233b; }
+      .line { fill: none; stroke: #687b91; stroke-width: 2.4; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1440" height="940" rx="28" fill="#f5f8fc"/>
+  <rect x="1" y="1" width="1438" height="938" rx="27" fill="none" stroke="#dce4ee"/>
+  <text class="kicker" x="64" y="61">ORBITCALL / NATIVE-SHAPE BF16 SCORING</text>
+  <text class="heading" x="64" y="113">Keep the projection shape. Trim what follows.</text>
+  <text class="sub" x="64" y="151">Full native BF16 model work; fewer rows for normalization, target gathering and CPU transfer.</text>
+
+  <rect x="64" y="197" width="1312" height="168" rx="20" fill="#ffffff" stroke="#d4deeb"/>
+  <text class="panel" x="90" y="238">Shared execution contract</text>
+  <rect x="92" y="267" width="387" height="65" rx="12" fill="#edf3ff" stroke="#b8ccef"/>
+  <text class="label" x="285.5" y="307" text-anchor="middle">Prompt + complete JSON + EOS</text>
+  <path class="line" d="M 479 299.5 H 526"/>
+  <rect x="536" y="267" width="307" height="65" rx="12" fill="#edf3ff" stroke="#b8ccef"/>
+  <text class="label" x="689.5" y="307" text-anchor="middle">Stock BF16 backbone</text>
+  <path class="line" d="M 843 299.5 H 890"/>
+  <rect x="900" y="267" width="448" height="65" rx="12" fill="#edf3ff" stroke="#b8ccef"/>
+  <text class="label" x="1124" y="307" text-anchor="middle">Full native LM head · same M</text>
+
+  <rect x="64" y="396" width="1312" height="339" rx="20" fill="#ffffff" stroke="#d4deeb"/>
+  <text class="panel" x="90" y="437">Native BF16 full scoring · adapter installed</text>
+  <rect x="92" y="461" width="296" height="66" rx="12" fill="#edf3ff" stroke="#b8ccef"/>
+  <text class="mono" x="240" y="501" text-anchor="middle">Full logits · M × V</text>
+  <path class="line" d="M 388 494 H 435"/>
+  <rect x="445" y="461" width="449" height="66" rx="12" fill="#f1f3f7" stroke="#d1d9e5"/>
+  <text class="label" x="669.5" y="501" text-anchor="middle">Normalize all M rows over V</text>
+  <path class="line" d="M 894 494 H 941"/>
+  <rect x="951" y="461" width="397" height="66" rx="12" fill="#f1f3f7" stroke="#d1d9e5"/>
+  <text class="label" x="1149.5" y="501" text-anchor="middle">Gather + transfer prompt scores</text>
+
+  <text class="panel" x="90" y="585">Native-shape suffix scoring</text>
+  <rect x="92" y="609" width="296" height="66" rx="12" fill="#edf3ff" stroke="#b8ccef"/>
+  <text class="mono" x="240" y="649" text-anchor="middle">Full logits · M × V</text>
+  <path class="line" d="M 388 642 H 431"/>
+  <rect x="441" y="609" width="214" height="66" rx="12" fill="#fff4e6" stroke="#e9c798"/>
+  <text class="label" x="548" y="636" text-anchor="middle">Select suffix</text>
+  <text class="mono" x="548" y="661" text-anchor="middle">K rows</text>
+  <path class="line" d="M 655 642 H 691"/>
+  <rect x="701" y="609" width="306" height="66" rx="12" fill="#e4f5f2" stroke="#8bc8bd"/>
+  <text class="label" x="854" y="636" text-anchor="middle">Native normalization</text>
+  <text class="mono" x="854" y="661" text-anchor="middle">K × V · full vocabulary</text>
+  <path class="line" d="M 1007 642 H 1043"/>
+  <rect x="1053" y="609" width="295" height="66" rx="12" fill="#e4f5f2" stroke="#8bc8bd"/>
+  <text class="label" x="1200.5" y="636" text-anchor="middle">Gather + transfer</text>
+  <text class="small" x="1200.5" y="661" text-anchor="middle">Every suffix token + EOS</text>
+  <text class="small" x="92" y="711">M = native head rows in the current request/chunk. K = its required suffix-predictor rows.</text>
+
+  <rect x="64" y="766" width="1312" height="121" rx="18" fill="#14233b"/>
+  <text x="90" y="804" font-size="23" font-weight="650" fill="#ffffff">Select after projection. Retain hidden row P−1, which predicts the first suffix token.</text>
+  <text x="90" y="838" font-size="18" fill="#b7c7db">Same stock projection dtype and matrix shape. Scoring cache reads stay disabled; generation stays BF16.</text>
+  <text x="90" y="863" font-size="18" fill="#b7c7db">Measured fidelity and complete Agent results are recorded in the linked study report.</text>
+</svg>

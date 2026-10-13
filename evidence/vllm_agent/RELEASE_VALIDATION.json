@@ -1,0 +1,146 @@
+{
+  "status": "failed",
+  "execution": "Original Spark CPU-only artifact/replay validation",
+  "validator_source_sha256": "69fd2f809d699fcfd1a0bf67e996842ce565eef002a59affb1eaabdfb32ca43e",
+  "live_host": "NVIDIA GB10, GPU-2436ad33-655e-6ff1-a4ba-96a159b20bc4, 580.159.03",
+  "analysis_sha256": "40c72261f6f3f64cb6d7dcf1ea80e09abdbe854f889ac5ef98b064f4c460c728",
+  "archive_sha256": "5cbc505a541f291ec2505548e1c3b539195beacc5bb724f1e634ea1100e7a4cf",
+  "elapsed_seconds": 1.4460495640523732,
+  "checks": {
+    "analysis_and_frozen_sources": {
+      "frozen_source_files": 23,
+      "analyzed_originals": 470,
+      "promotion_by_model": {
+        "Qwen2.5-3B-Instruct": true,
+        "Qwen2.5-1.5B-Instruct": false
+      },
+      "combined_same_workload_promotion_accepted": false,
+      "baseline": "Adapter installed; unmarked native_default delegates original vLLM BF16 full scoring. No adapter-disabled timing arm."
+    },
+    "raw_archive": {
+      "archive_sha256": "5cbc505a541f291ec2505548e1c3b539195beacc5bb724f1e634ea1100e7a4cf",
+      "archive_bytes": 8486482,
+      "reopened_members": 551,
+      "member_privacy_checked": true,
+      "analyzed_original_hash_links": 470,
+      "actual_attention_backends": [
+        "FLASH_ATTN"
+      ],
+      "first_export_infrastructure_log": {
+        "file": "logs/vllm_agent_export_v1.log",
+        "archived_original_sha256": "f8805bbb785c93a7edca45520bd78a9976dd46464ed0aa67a0cf86663f695ef2",
+        "current_sha256": "f8805bbb785c93a7edca45520bd78a9976dd46464ed0aa67a0cf86663f695ef2",
+        "unchanged_since_snapshot": true,
+        "scope": "Retained non-scientific export failure; any later console append does not rewrite archive bytes."
+      }
+    },
+    "published_report": {
+      "rendered_artifacts": 7,
+      "report_files_with_receipt": 8,
+      "artifacts": [
+        {
+          "file": "evidence/vllm_agent/RENDER_RECEIPT.json",
+          "bytes": 1582,
+          "sha256": "3a98d96b851b0ea007f87cdf2cc68f788fa6141ff33801636e355400a403c7df"
+        },
+        {
+          "file": "evidence/vllm_agent/RESULTS.md",
+          "bytes": 6426,
+          "sha256": "fd7e3b270e66690fa31f5c9cb41973bf5a82ff8cb3a6364f2282079b3c166dba"
+        },
+        {
+          "file": "evidence/vllm_agent/agent_vs_scoring_ratios.png",
+          "bytes": 121481,
+          "sha256": "6592532fe41a1d6b072f531dd880cfd22844ecb3063ee5c6db09a957b86a407f"
+        },
+        {
+          "file": "evidence/vllm_agent/agent_vs_scoring_ratios.svg",
+          "bytes": 21461,
+          "sha256": "d24136f7088618a1084444a4ef2d51b5d7f82cbfe1415331d0ac36b53fdc3873"
+        },
+        {
+          "file": "evidence/vllm_agent/independent_analysis.json",
+          "bytes": 1839959,
+          "sha256": "40c72261f6f3f64cb6d7dcf1ea80e09abdbe854f889ac5ef98b064f4c460c728"
+        },
+        {
+          "file": "evidence/vllm_agent/stage_wall_times.png",
+          "bytes": 159022,
+          "sha256": "2cac8126164647f44aa18245230c5d9dbc0937fec52d924e37089fcb162e80b3"
+        },
+        {
+          "file": "evidence/vllm_agent/stage_wall_times.svg",
+          "bytes": 19655,
+          "sha256": "c1b082cd20e63a14371b4e3ff8eb58d5d557fb525171927e2fae7ddaea480127"
+        },
+        {
+          "file": "evidence/vllm_agent/summary.json",
+          "bytes": 26573,
+          "sha256": "7db0016a226af742c00a41327df71a2c34eb1bd8a4a410554f8f438c4655994e"
+        }
+      ]
+    },
+    "retained_locked_arrays": {
+      "nonempty_locked_pools": 144,
+      "exact_raw_score_arrays_match": true,
+      "all_eleven_stored_decisions_match": true,
+      "zero_recorded_errors": true,
+      "numerical_or_quality_resampling_performed": false
+    },
+    "portable_demo": {
+      "demo": {
+        "file": "evidence/vllm_agent/demo_agent_v1.json",
+        "bytes": 130981,
+        "sha256": "d2714f7a5faf7790c947c38a57748e3ac744b01d46eac329006c494a22323a14"
+      },
+      "development_ids": [
+        "catalog_item_02_0",
+        "calendar_region_2_2026_0"
+      ],
+      "real_tool_observations": [
+        {
+          "id": "catalog_item_02_0",
+          "stage": 1,
+          "actual_observation_matches_record": true,
+          "complete_family_sequences": 2
+        },
+        {
+          "id": "catalog_item_02_0",
+          "stage": 2,
+          "actual_observation_matches_record": true,
+          "complete_family_sequences": 6
+        },
+        {
+          "id": "calendar_region_2_2026_0",
+          "stage": 1,
+          "actual_observation_matches_record": true,
+          "complete_family_sequences": 2
+        },
+        {
+          "id": "calendar_region_2_2026_0",
+          "stage": 2,
+          "actual_observation_matches_record": true,
+          "complete_family_sequences": 12
+        }
+      ],
+      "source_at_validation": {
+        "file": "examples/vllm_agent.py",
+        "bytes": 2146,
+        "sha256": "fa30cd24c46049b8c10e82eea13897393bcd5c5380a56d12cea2e55027a9c83a"
+      },
+      "source_chain_limit": "Demo had no pre-run script-hash receipt; current example hash is recorded at validation, not retroactively frozen.",
+      "final_answers_preserved": true,
+      "demo_quality_evaluated": false,
+      "demo_task_success_claim": false,
+      "scope": "Interface/execution demonstration only; model final-answer errors remain untouched."
+    },
+    "blocking_error": "[Errno 2] No such file or directory: '<host-path>'"
+  },
+  "model_inference_performed": false,
+  "gpu_context_created": false,
+  "gold_reference_evaluator_called": false,
+  "scientific_files_modified": false,
+  "thresholds_changed": false,
+  "additional_receipt_outside_sealed_raw_archive": true,
+  "limits": "Provenance, archive privacy, stored score arrays and deterministic public-tool execution only; no new speed/quality claim, demo-answer correction or failed-promotion rescue."
+}

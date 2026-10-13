@@ -1,4 +1,5 @@
 .venv/
+.venv*/
 __pycache__/
 *.py[cod]
 models/
@@ -18,3 +19,9 @@ STATUS.md
 *.egg-info/
 # Rejected first export: raw JSON escapes triggered a false path guard.
 /evidence/raw_results.tar.gz
+/tmp/
+/docs/*_DRAFT.md
+/metadata/approximate_scoring_independent_analysis_v1.json
+/metadata/vllm_agent_shape_analysis_v1.json
+/metadata/vllm_agent_shape_analysis_v1_quality_receipts/
+/metadata/vllm_agent*_owned.json
