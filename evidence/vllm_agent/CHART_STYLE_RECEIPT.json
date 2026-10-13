@@ -1,0 +1,331 @@
+{
+  "format_version": 1,
+  "status": "complete",
+  "operation": "presentation-only redraw of immutable measured figures",
+  "input_file": "evidence/vllm_agent/summary.json",
+  "input_sha256": "7db0016a226af742c00a41327df71a2c34eb1bd8a4a410554f8f438c4655994e",
+  "script_file": "scripts/render_vllm_agent_readme_charts.py",
+  "script_sha256": "5fa093c98cf27f7f20616377b85e8f74716dadb114d934c23c079b7f9177dfa8",
+  "output_directory": "evidence/vllm_agent_readme_charts_v2_20261014_v4",
+  "original_gpu_uuid": "GPU-2436ad33-655e-6ff1-a4ba-96a159b20bc4",
+  "matplotlib_version": "3.10.3",
+  "new_inference_performed": false,
+  "model_or_cuda_context_loaded": false,
+  "numerical_timing_rerun": false,
+  "measured_analysis_sha256": "40c72261f6f3f64cb6d7dcf1ea80e09abdbe854f889ac5ef98b064f4c460c728",
+  "original_renderer_sha256": "7b5b4a7e5c46dca66200a3bb3646ce5466dcbc4a839507ca61fc4b939d464447",
+  "combined_same_workload_promotion_accepted": false,
+  "style": {
+    "canvas_inches": [
+      14,
+      8.8
+    ],
+    "png_dpi": 130,
+    "png_width_pixels": 1820,
+    "minimum_font_points": 24,
+    "palette": {
+      "navy": "#18364B",
+      "teal": "#167F83",
+      "coral": "#DD795F"
+    },
+    "baseline": "native BF16 full scoring with adapter installed; no disabled-adapter arm"
+  },
+  "ratio_style": {
+    "shared_ratio_xlim": [
+      0.975,
+      1.410927975818107
+    ],
+    "equality_reference": 1.0,
+    "point_count_per_model": 12,
+    "point_count_per_metric_per_model": 6,
+    "ratio_display": "points, never bars from the cropped ratio origin",
+    "aggregation": "median and full range of all six paired block ratios"
+  },
+  "stage_style": {
+    "shared_seconds_xlim": [
+      0,
+      12
+    ],
+    "aggregation": "arithmetic mean of all twelve windows per arm",
+    "other_definition": "exact sum of parsing + tools_and_history + harness, including cache-reset residual",
+    "tiny_segment_policy": "actual widths retained; no minimum-width inflation or omitted component"
+  },
+  "plotted_models": [
+    {
+      "model": "Qwen2.5-3B-Instruct",
+      "retained_windows": 24,
+      "paired_block_count": 6,
+      "paired_points": [
+        {
+          "block": 0,
+          "agent_control_over_optimized": 1.0838036907265056,
+          "scoring_control_over_optimized": 1.1932423784363215,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 1,
+          "agent_control_over_optimized": 1.0824881891304676,
+          "scoring_control_over_optimized": 1.1860962159946054,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 2,
+          "agent_control_over_optimized": 1.0756114825294256,
+          "scoring_control_over_optimized": 1.1698278577981023,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 3,
+          "agent_control_over_optimized": 1.0838651861653716,
+          "scoring_control_over_optimized": 1.1888862226328305,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 4,
+          "agent_control_over_optimized": 1.0750832485365427,
+          "scoring_control_over_optimized": 1.1731803542270942,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 5,
+          "agent_control_over_optimized": 1.0809797403642458,
+          "scoring_control_over_optimized": 1.1932483168343484,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        }
+      ],
+      "median_agent_ratio": 1.0817339647473567,
+      "agent_range": [
+        1.0750832485365427,
+        1.0838651861653716
+      ],
+      "median_scoring_ratio": 1.187491219313718,
+      "scoring_range": [
+        1.1698278577981023,
+        1.1932483168343484
+      ],
+      "strict_promotion_accepted": true,
+      "separate_corpus_check": {
+        "episode_count": 36,
+        "matched_count": 36,
+        "all_matched": true,
+        "changed_episodes": []
+      },
+      "stage_values": {
+        "native_default": {
+          "windows": 12,
+          "episodes_per_window": 8,
+          "mean_wall_seconds": 9.788384878755702,
+          "raw_stage_seconds": {
+            "generation": 4.152661475818604,
+            "scoring": 4.700890234690935,
+            "final_generation": 0.9219914945230508,
+            "parsing": 0.0030624410525585213,
+            "tools_and_history": 0.0010555473078663151,
+            "harness": 0.008723685362686714
+          },
+          "other_components_seconds": {
+            "parsing": 0.0030624410525585213,
+            "tools_and_history": 0.0010555473078663151,
+            "harness": 0.008723685362686714
+          },
+          "plot_stage_seconds": {
+            "generation": 4.152661475818604,
+            "scoring": 4.700890234690935,
+            "final_generation": 0.9219914945230508,
+            "other": 0.012841673723111551
+          }
+        },
+        "native_shape_suffix": {
+          "windows": 12,
+          "episodes_per_window": 8,
+          "mean_wall_seconds": 9.060693095515793,
+          "raw_stage_seconds": {
+            "generation": 4.1567960916242255,
+            "scoring": 3.9699482929427177,
+            "final_generation": 0.9234107898470635,
+            "parsing": 0.003118104786456873,
+            "tools_and_history": 0.0010457437989922862,
+            "harness": 0.006374072516337037
+          },
+          "other_components_seconds": {
+            "parsing": 0.003118104786456873,
+            "tools_and_history": 0.0010457437989922862,
+            "harness": 0.006374072516337037
+          },
+          "plot_stage_seconds": {
+            "generation": 4.1567960916242255,
+            "scoring": 3.9699482929427177,
+            "final_generation": 0.9234107898470635,
+            "other": 0.010537921101786196
+          }
+        }
+      }
+    },
+    {
+      "model": "Qwen2.5-1.5B-Instruct",
+      "retained_windows": 24,
+      "paired_block_count": 6,
+      "paired_points": [
+        {
+          "block": 0,
+          "agent_control_over_optimized": 1.1652386195670041,
+          "scoring_control_over_optimized": 1.3250464579144177,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 1,
+          "agent_control_over_optimized": 1.1834729470548366,
+          "scoring_control_over_optimized": 1.3573202359535268,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 2,
+          "agent_control_over_optimized": 1.1868292015904398,
+          "scoring_control_over_optimized": 1.365927975818107,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 3,
+          "agent_control_over_optimized": 1.1748124264098045,
+          "scoring_control_over_optimized": 1.3432474907066863,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 4,
+          "agent_control_over_optimized": 1.1825657998907488,
+          "scoring_control_over_optimized": 1.3513509212125265,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 5,
+          "agent_control_over_optimized": 1.1810647406236887,
+          "scoring_control_over_optimized": 1.3607557305851328,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        }
+      ],
+      "median_agent_ratio": 1.1818152702572187,
+      "agent_range": [
+        1.1652386195670041,
+        1.1868292015904398
+      ],
+      "median_scoring_ratio": 1.3543355785830267,
+      "scoring_range": [
+        1.3250464579144177,
+        1.365927975818107
+      ],
+      "strict_promotion_accepted": false,
+      "separate_corpus_check": {
+        "episode_count": 36,
+        "matched_count": 35,
+        "all_matched": false,
+        "changed_episodes": [
+          {
+            "id": "catalog_item_06_2",
+            "matched_complete_workload": false,
+            "rounds": {
+              "1": {
+                "same_prompt_tokens": true,
+                "same_samples": true,
+                "same_candidates": true,
+                "same_scored_tokens": true,
+                "same_selected_call": true,
+                "same_tool_observation": true
+              },
+              "2": {
+                "same_prompt_tokens": true,
+                "same_samples": false,
+                "same_candidates": false,
+                "same_scored_tokens": false,
+                "same_selected_call": true,
+                "same_tool_observation": true
+              }
+            },
+            "same_final_text": true,
+            "same_final_tokens": true
+          }
+        ]
+      },
+      "stage_values": {
+        "native_default": {
+          "windows": 12,
+          "episodes_per_window": 8,
+          "mean_wall_seconds": 6.855982986957922,
+          "raw_stage_seconds": {
+            "generation": 2.3351676077193892,
+            "scoring": 4.016331088573982,
+            "final_generation": 0.4893109321904679,
+            "parsing": 0.0031406571894573667,
+            "tools_and_history": 0.0010440357339878876,
+            "harness": 0.010988665550636748
+          },
+          "other_components_seconds": {
+            "parsing": 0.0031406571894573667,
+            "tools_and_history": 0.0010440357339878876,
+            "harness": 0.010988665550636748
+          },
+          "plot_stage_seconds": {
+            "generation": 2.3351676077193892,
+            "scoring": 4.016331088573982,
+            "final_generation": 0.4893109321904679,
+            "other": 0.015173358474082002
+          }
+        },
+        "native_shape_suffix": {
+          "windows": 12,
+          "episodes_per_window": 8,
+          "mean_wall_seconds": 5.8151855803056,
+          "raw_stage_seconds": {
+            "generation": 2.337003305166339,
+            "scoring": 2.9737799747963436,
+            "final_generation": 0.49252472010751563,
+            "parsing": 0.0030805417724574604,
+            "tools_and_history": 0.0010015354103719194,
+            "harness": 0.00779550305257241
+          },
+          "other_components_seconds": {
+            "parsing": 0.0030805417724574604,
+            "tools_and_history": 0.0010015354103719194,
+            "harness": 0.00779550305257241
+          },
+          "plot_stage_seconds": {
+            "generation": 2.337003305166339,
+            "scoring": 2.9737799747963436,
+            "final_generation": 0.49252472010751563,
+            "other": 0.011877580235401789
+          }
+        }
+      }
+    }
+  ],
+  "output_artifacts": {
+    "readme_paired_ratios_v2.png": {
+      "bytes": 221401,
+      "sha256": "4c49cca662db921553d2018b84e65cd95240a566728e2ba5f51dbedb6f3f2eb6"
+    },
+    "readme_paired_ratios_v2.svg": {
+      "bytes": 24410,
+      "sha256": "421864d6112ea311c81de61e2bde08a809a080437c54efb26eafc8fb9d02af8b"
+    },
+    "readme_stage_times_v2.png": {
+      "bytes": 262132,
+      "sha256": "c608b51be4a286fa6d5a39490ed1f078b6589601c2e70c68397e8ddefc3a9e13"
+    },
+    "readme_stage_times_v2.svg": {
+      "bytes": 19450,
+      "sha256": "a51832797e696d103e4ed0202856a7960621c70d3eba6ebb3b5bda2b3d12680e"
+    }
+  },
+  "elapsed_cpu_render_seconds": 0.3685483119916171
+}

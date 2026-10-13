@@ -38,9 +38,9 @@ Both models' timed work matches. † One unselected 1.5B candidate differs in th
 separate 36-task pass; its strict corpus-consistency gate remains failed.
 Calls, observations and final answers match. These are local executable fixtures.
 
-![All paired complete-Agent and scoring ratios](evidence/vllm_agent/agent_vs_scoring_ratios.png)
+![Whole-Agent and scoring medians with all six paired blocks](evidence/vllm_agent/readme_paired_ratios_v2.png)
 
-![Where the complete Agent wall time went](evidence/vllm_agent/stage_wall_times.png)
+![Complete Agent stage means over all twelve windows per arm](evidence/vllm_agent/readme_stage_times_v2.png)
 
 **144/144 locked round pools:** zero score error; all eleven decisions match.
 **419 tests passed in the experimental environment.** [Report and controls](evidence/vllm_agent/RESULTS.md) ·
