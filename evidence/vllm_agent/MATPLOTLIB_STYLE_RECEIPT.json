@@ -1,0 +1,283 @@
+{
+  "format_version": 1,
+  "status": "complete",
+  "scope": "Conventional Matplotlib styling of frozen measured data",
+  "input_file": "evidence/vllm_agent/summary.json",
+  "input_sha256": "7db0016a226af742c00a41327df71a2c34eb1bd8a4a410554f8f438c4655994e",
+  "script_file": "scripts/render_vllm_agent_matplotlib.py",
+  "script_sha256": "135633ea4bd19b179e6efd813d72c614595435504bc9a212798507b3c1f222ae",
+  "dependency_file": "scripts/render_vllm_agent_readme_charts.py",
+  "dependency_sha256": "5fa093c98cf27f7f20616377b85e8f74716dadb114d934c23c079b7f9177dfa8",
+  "output_directory": "evidence/vllm_agent_matplotlib_v3_20261014_v2",
+  "original_gpu_uuid": "GPU-2436ad33-655e-6ff1-a4ba-96a159b20bc4",
+  "matplotlib_version": "3.10.3",
+  "new_inference_performed": false,
+  "numerical_timing_rerun": false,
+  "style": {
+    "layout": "ordinary axes, grouped bars and stacked bars; no cards, badges or oversized typography",
+    "png_width_pixels": 2160,
+    "png_dpi": 240
+  },
+  "ratio_style": {
+    "shared_ratio_ylim": [
+      0,
+      1.5
+    ],
+    "bars": "median of all six paired block ratios",
+    "dots": "all six measured block ratios, x jitter only",
+    "whiskers": "observed minimum and maximum; not confidence intervals",
+    "reference": 1,
+    "point_count": 24
+  },
+  "stage_style": {
+    "shared_seconds_xlim": [
+      0,
+      11
+    ],
+    "aggregation": "mean of all 12 windows per arm",
+    "episodes_per_window": 8,
+    "other_definition": [
+      "parsing",
+      "tools_and_history",
+      "harness"
+    ],
+    "tiny_segments": "actual widths, no inflation or removed component"
+  },
+  "plotted_models": [
+    {
+      "model": "Qwen2.5-3B-Instruct",
+      "paired_points": [
+        {
+          "block": 0,
+          "agent_control_over_optimized": 1.0838036907265056,
+          "scoring_control_over_optimized": 1.1932423784363215,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 1,
+          "agent_control_over_optimized": 1.0824881891304676,
+          "scoring_control_over_optimized": 1.1860962159946054,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 2,
+          "agent_control_over_optimized": 1.0756114825294256,
+          "scoring_control_over_optimized": 1.1698278577981023,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 3,
+          "agent_control_over_optimized": 1.0838651861653716,
+          "scoring_control_over_optimized": 1.1888862226328305,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 4,
+          "agent_control_over_optimized": 1.0750832485365427,
+          "scoring_control_over_optimized": 1.1731803542270942,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 5,
+          "agent_control_over_optimized": 1.0809797403642458,
+          "scoring_control_over_optimized": 1.1932483168343484,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        }
+      ],
+      "median_agent_ratio": 1.0817339647473567,
+      "agent_range": [
+        1.0750832485365427,
+        1.0838651861653716
+      ],
+      "median_scoring_ratio": 1.187491219313718,
+      "scoring_range": [
+        1.1698278577981023,
+        1.1932483168343484
+      ],
+      "stage_values": {
+        "native_default": {
+          "windows": 12,
+          "episodes_per_window": 8,
+          "mean_wall_seconds": 9.788384878755702,
+          "raw_stage_seconds": {
+            "generation": 4.152661475818604,
+            "scoring": 4.700890234690935,
+            "final_generation": 0.9219914945230508,
+            "parsing": 0.0030624410525585213,
+            "tools_and_history": 0.0010555473078663151,
+            "harness": 0.008723685362686714
+          },
+          "other_components_seconds": {
+            "parsing": 0.0030624410525585213,
+            "tools_and_history": 0.0010555473078663151,
+            "harness": 0.008723685362686714
+          },
+          "plot_stage_seconds": {
+            "generation": 4.152661475818604,
+            "scoring": 4.700890234690935,
+            "final_generation": 0.9219914945230508,
+            "other": 0.012841673723111551
+          }
+        },
+        "native_shape_suffix": {
+          "windows": 12,
+          "episodes_per_window": 8,
+          "mean_wall_seconds": 9.060693095515793,
+          "raw_stage_seconds": {
+            "generation": 4.1567960916242255,
+            "scoring": 3.9699482929427177,
+            "final_generation": 0.9234107898470635,
+            "parsing": 0.003118104786456873,
+            "tools_and_history": 0.0010457437989922862,
+            "harness": 0.006374072516337037
+          },
+          "other_components_seconds": {
+            "parsing": 0.003118104786456873,
+            "tools_and_history": 0.0010457437989922862,
+            "harness": 0.006374072516337037
+          },
+          "plot_stage_seconds": {
+            "generation": 4.1567960916242255,
+            "scoring": 3.9699482929427177,
+            "final_generation": 0.9234107898470635,
+            "other": 0.010537921101786196
+          }
+        }
+      },
+      "strict_promotion_accepted": true
+    },
+    {
+      "model": "Qwen2.5-1.5B-Instruct",
+      "paired_points": [
+        {
+          "block": 0,
+          "agent_control_over_optimized": 1.1652386195670041,
+          "scoring_control_over_optimized": 1.3250464579144177,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 1,
+          "agent_control_over_optimized": 1.1834729470548366,
+          "scoring_control_over_optimized": 1.3573202359535268,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 2,
+          "agent_control_over_optimized": 1.1868292015904398,
+          "scoring_control_over_optimized": 1.365927975818107,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 3,
+          "agent_control_over_optimized": 1.1748124264098045,
+          "scoring_control_over_optimized": 1.3432474907066863,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 4,
+          "agent_control_over_optimized": 1.1825657998907488,
+          "scoring_control_over_optimized": 1.3513509212125265,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        },
+        {
+          "block": 5,
+          "agent_control_over_optimized": 1.1810647406236887,
+          "scoring_control_over_optimized": 1.3607557305851328,
+          "all_workloads_matched": true,
+          "optimized_task_success_drop": false
+        }
+      ],
+      "median_agent_ratio": 1.1818152702572187,
+      "agent_range": [
+        1.1652386195670041,
+        1.1868292015904398
+      ],
+      "median_scoring_ratio": 1.3543355785830267,
+      "scoring_range": [
+        1.3250464579144177,
+        1.365927975818107
+      ],
+      "stage_values": {
+        "native_default": {
+          "windows": 12,
+          "episodes_per_window": 8,
+          "mean_wall_seconds": 6.855982986957922,
+          "raw_stage_seconds": {
+            "generation": 2.3351676077193892,
+            "scoring": 4.016331088573982,
+            "final_generation": 0.4893109321904679,
+            "parsing": 0.0031406571894573667,
+            "tools_and_history": 0.0010440357339878876,
+            "harness": 0.010988665550636748
+          },
+          "other_components_seconds": {
+            "parsing": 0.0031406571894573667,
+            "tools_and_history": 0.0010440357339878876,
+            "harness": 0.010988665550636748
+          },
+          "plot_stage_seconds": {
+            "generation": 2.3351676077193892,
+            "scoring": 4.016331088573982,
+            "final_generation": 0.4893109321904679,
+            "other": 0.015173358474082002
+          }
+        },
+        "native_shape_suffix": {
+          "windows": 12,
+          "episodes_per_window": 8,
+          "mean_wall_seconds": 5.8151855803056,
+          "raw_stage_seconds": {
+            "generation": 2.337003305166339,
+            "scoring": 2.9737799747963436,
+            "final_generation": 0.49252472010751563,
+            "parsing": 0.0030805417724574604,
+            "tools_and_history": 0.0010015354103719194,
+            "harness": 0.00779550305257241
+          },
+          "other_components_seconds": {
+            "parsing": 0.0030805417724574604,
+            "tools_and_history": 0.0010015354103719194,
+            "harness": 0.00779550305257241
+          },
+          "plot_stage_seconds": {
+            "generation": 2.337003305166339,
+            "scoring": 2.9737799747963436,
+            "final_generation": 0.49252472010751563,
+            "other": 0.011877580235401789
+          }
+        }
+      },
+      "strict_promotion_accepted": false
+    }
+  ],
+  "output_artifacts": {
+    "readme_paired_ratios_v3.png": {
+      "bytes": 123956,
+      "sha256": "00e3146d597f70db3d92bb50ff64cfd60d407184e180e2f006fd9ed676ac1df6"
+    },
+    "readme_paired_ratios_v3.svg": {
+      "bytes": 16718,
+      "sha256": "a69b076a27b8ada1fb0b2ea7a3b7241582a3678c45f6c9f75e9e816bd41f72fc"
+    },
+    "readme_stage_times_v3.png": {
+      "bytes": 132832,
+      "sha256": "f3ccf9d5c3314b0177deedf091585bbee82da4c3af1d28d6d74b23fb6b159239"
+    },
+    "readme_stage_times_v3.svg": {
+      "bytes": 18613,
+      "sha256": "a3a83279b8db14b1bd2b1d2b9febd322f72aa9e40b3be6d0a2ddd042d5f0dac5"
+    }
+  },
+  "elapsed_cpu_render_seconds": 0.33113301801495254
+}
